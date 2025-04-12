@@ -10,7 +10,7 @@ async function setup(params) {
     // load things based on the page
     console.log(`loding '${window.location.pathname}' content`);
     switch (window.location.pathname){
-        case "/chat":
+        case "/chat/" || "/chat" || "chat":
             await loadChat();
             document.getElementById("chatSend").addEventListener("click", sendMessage);
 
@@ -29,13 +29,13 @@ async function setup(params) {
             });
 
             break;
-        case "/socials":
+        case "/socials/" || "/socials" || "socials":
             await loadDiscord();
             await loadBsky();
             await loadGithub();
 
             break;
-        case "/blog":
+        case "/blog/" || "/blog" || "blog":
             await buildblog();
 
             break;

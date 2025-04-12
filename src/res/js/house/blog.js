@@ -47,7 +47,7 @@ async function loadSinglePost(post) {
             <meta name="viewport" content="width=device-width" />
             <link rel="icon" type="image/x-icon" href="../icon.svg">
 
-            <link href="/stylesheet/dist/styles.css" rel="stylesheet">
+            <link href="https://crimtane.roxcelic.love/styles.css" rel="stylesheet">
 
             <meta name="generator" content={Astro.generator} />
         </head>
