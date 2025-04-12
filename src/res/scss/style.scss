@@ -6,3 +6,61 @@
 
 @use 'animations/desktop-anims';
 @use 'animations/mobile-anims';
+
+// global styles
+html {
+    background-image: url('https://api.roxcelic.love/api/v1/wallpaper');
+    
+    background-size: fill;
+    background-repeat: no-repeat;
+}
+
+img {
+    margin: auto;
+    
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: var(--border-radius);
+}
+
+#navbar {
+    display: flex;
+
+    justify-content: space-evenly;
+
+    }
+
+#chatcontainer {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+#chatSend {
+    width: 100%;
+}
+
+#blogposts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .blogpost {
+        position: relative;
+        padding: 1vh;
+
+        margin: 1vh;
+
+        border: 1px solid rgb(54, 54, 54);
+        border-radius: var(--border-radius);
+
+        width: fit-content;
+        min-width: 250px;
+
+        text-align: center;
+        
+        transition: all ease-in-out 0.3s;
+    }
+
+    .blogpost:hover{
+        background-color: rgba(255, 0, 144, 0.5);
+    }
+}

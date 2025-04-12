@@ -1,0 +1,22 @@
+---
+interface Props {
+	title: string;
+    desc: string;
+}
+
+const { title="", desc="" } = Astro.props;
+---
+<div id="navbar">
+    <p><a href="/">home</a></p>
+    <p><a href="/blog">blog</a></p>
+    <p><a href="/socials">socials</a></p>
+    <p><a href="/chat">chat</a></p>
+</div>
+<hr>
+<h3 style="text-align: center;">
+    { title }
+</h3>
+<p style="text-align: center;">
+    { desc }
+</p>
+<hr>

@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/astro/main.astro"
+
+import Webcard from "../comp/webcard.astro"
+---
+<Layout desc="my web presence :sunglasses:" title="socials">
+    <div class="socials">
+        <div>
+            <Webcard
+                id="discord"
+            />
+            <Webcard
+                id="bsky"
+            />
+            <Webcard
+                id="github"
+            />
+        </div>
+        <hr class="mobile">
+        <div>
+            <p>
+                Hey, weclome to my socials.<br>
+                Hover or click on them to either be told their respective service of taken to their page (:
+
+                <br><br>
+
+                Thank you for taking the time to look here!!!
+            </p>
+        </div>
+    </div>
+</Layout>

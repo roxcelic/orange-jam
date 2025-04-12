@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/astro/main.astro"
+---
+<Layout desc="100 messages" title="chat">
+
+    <p style="text-align: center;">
+        by using this chat you agree to these <a href="/chat/rules/">rules</a>
+    </p>
+    <hr>
+
+
+    <div id="chat">
+
+    </div>
+
+    <hr style="margin: 15px auto 15px auto;">
+    
+    <div id="chatcontainer">
+        <input placeholder="message..." id="chatMessage">
+        <input value="#ffffff" type="color" id="chatColor">
+    </div>
+    <button id="chatSend">send message</button>
+</Layout>

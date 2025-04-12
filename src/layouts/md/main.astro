@@ -5,5 +5,7 @@ import Layout from '../full.astro';
 ---
 
 <Layout desc={frontmatter.desc} title={frontmatter.title}>
-    <slot />
+    <div style="padding-left: 5vw; padding-right: 5vw;">
+        <slot />        
+    </div>
 </Layout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+	id: string;
+}
+
+const { id="" } = Astro.props;
+---
+<div class="webcardParent">
+
+    <a class="webcard" id=`${id}webcard`>
+        <div id=`${id}icon` class="icon"></div>
+        <div>
+            <p id=`${id}Name` >Name</p>
+            <p id=`${id}Username` >Username</p>
+        </div>
+    </a>
+
+    <p style="text-align: center;" class="hidden">
+        {id}
+    </p>
+</div>
