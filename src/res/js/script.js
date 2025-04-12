@@ -8,6 +8,7 @@ async function setup(params) {
     await Music();
 
     // load things based on the page
+    console.log(`loding '${window.location.pathname}' content`);
     switch (window.location.pathname){
         case "/chat":
             await loadChat();
