@@ -26,7 +26,8 @@ async function setup(params) {
             color.value = document.cookie.split('; ').find(row => row.startsWith('color='))?.split('=')[1];
 
             let speed = document.getElementById("chatSpeed");
-            speed.value = parseInt(document.cookie.split('; ').find(row => row.startsWith('speed='))?.split('=')[1]);
+            let speedval = document.cookie.split('; ').find(row => row.startsWith('speed='))?.split('=')[1];
+            speed.value = parseInt(speedval != undefined ? parseInt(speedval) : 1000);
 
             color.addEventListener('input', function() {
                 document.cookie = `color=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
