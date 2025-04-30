@@ -29,12 +29,24 @@ async function setup(params) {
             let speedval = document.cookie.split('; ').find(row => row.startsWith('speed='))?.split('=')[1];
             speed.value = parseInt(speedval != undefined ? parseInt(speedval) : 1000);
 
+            let chatRoom = document.getElementById("chatroom");
+            chatRoom.textContent = document.cookie.split('; ').find(row => row.startsWith('room='))?.split('=')[1];
+
             color.addEventListener('input', function() {
                 document.cookie = `color=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
 
             speed.addEventListener('input', function() {
                 document.cookie = `speed=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+            });
+
+            chatRoom.addEventListener('input', function() {
+                document.cookie = `room=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+            });
+
+            chatRoom.addEventListener('input', function() {
+                document.getElementById("chat").innerHTML = "";
+                loadChat();
             });
 
             break;
