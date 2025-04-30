@@ -32,6 +32,9 @@ async function setup(params) {
             let chatRoom = document.getElementById("chatroom");
             chatRoom.textContent = document.cookie.split('; ').find(row => row.startsWith('room='))?.split('=')[1];
 
+            let userName = document.getElementById("chatname");
+            userName.textContent = document.cookie.split('; ').find(row => row.startsWith('name='))?.split('=')[1];
+
             color.addEventListener('input', function() {
                 document.cookie = `color=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
@@ -44,9 +47,12 @@ async function setup(params) {
                 document.cookie = `room=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
 
+            userName.addEventListener('input', function() {
+                document.cookie = `name=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+            });
+
             chatRoom.addEventListener('input', function() {
                 document.getElementById("chat").innerHTML = "";
-                loadChat();
             });
 
             break;
