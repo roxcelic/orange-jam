@@ -24,7 +24,7 @@ function spawnMessage(message){
         pappaMessage.appendChild(newMessage);
         return pappaMessage;
     } catch (e) {
-        return document.createElement("p");
+        return document.createElement("P");
     }
 }
 
@@ -37,7 +37,7 @@ function getOldChat(chat){
 }
 
 async function displayChat(interval = null, chat = null, speed = null, delay = 0) {
-    let apiRoot = `https://api.roxcelic.love/`;
+    let apiRoot = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':3000' : ''}/`;
 
     if (speed != null && interval != null && speed.value != delay){
         console.log("changing chat refresh speed");
@@ -48,7 +48,7 @@ async function displayChat(interval = null, chat = null, speed = null, delay = 0
     }
 
     try {
-        let response = await fetch(`${apiRoot}api/v1/chat/view?chatName=${document.getElementById("chatroom").value}`)
+        let response = await fetch(`${apiRoot}api/v1/chat/view?chatName=${document.getElementById("chatroom").value}`);
         let data = await response.json();
         data.chat = Array.isArray(data.chat) ? data.chat : [["basic message", "#783432", 0]];
 
@@ -93,7 +93,7 @@ export async function loadChat(delay = 0) {
 }
 
 export async function sendMessage() {
-    let apiRoot = `https://api.roxcelic.love/`;
+    let apiRoot = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':3000' : ''}/`;
 
     let data = {
         upload: document.getElementById("chatMessage").value,
@@ -118,4 +118,41 @@ export async function sendMessage() {
     } catch (e) {
         console.log(e);
     }
+}
+
+export async function loadChats() {
+    let dropdown = document.getElementById("chatroom");
+    let apiRoot = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':3000' : ''}/`;
+    
+    try {
+        let resposne = await fetch(`${apiRoot}api/v1/paths?method=2`);
+        let data = await resposne.json();
+    
+        data.forEach(item => {
+            item = item.substring(0, item.length - 5);
+
+            if (item != "admin"){
+                dropdown.appendChild(newOption(item));
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+
+    let params = new URLSearchParams(window.location.search);
+    let chat = params.get('chat');
+
+    chat = chat != null ? `chat/${chat}` : `chat/${document.cookie.split('; ').find(row => row.startsWith('room='))?.split('=')[1]}`;
+
+    document.getElementById(chat).selected = true;
+}
+
+function newOption(value) {
+    let option = document.createElement("option");
+
+    option.value = value;
+    option.innerText = value;
+    option.id = `chat/${value}`;
+
+    return option;
 }

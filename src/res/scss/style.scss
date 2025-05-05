@@ -79,3 +79,13 @@ input[type=number] {
 
     width: 99%;
 }
+button, select, label, input[type="file"]::file-selector-button  {
+    width: 100% !important;
+
+    color: inherit;
+    font: inherit;
+
+    border: 2px solid black !important;
+    border-radius: 7px !important;
+    background-color: transparent;
+}

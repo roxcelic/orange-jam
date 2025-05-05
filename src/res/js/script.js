@@ -1,4 +1,4 @@
-import { loadChat, sendMessage } from "./house/chat";
+import { loadChat, sendMessage, loadChats } from "./house/chat";
 import { Music } from "./house/music";
 import { loadDiscord, loadBsky, loadGithub } from "./house/socials";
 import { buildblog } from "./house/blog";
@@ -12,9 +12,10 @@ async function setup(params) {
     switch (window.location.pathname){
         case "/chat/" || "/chat" || "chat":
 
-            await loadChat();
-            document.getElementById("chatSend").addEventListener("click", sendMessage);
+            loadChat();
+            loadChats();
 
+            document.getElementById("chatSend").addEventListener("click", sendMessage);
             document.getElementById("chatMessage").addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
                     sendMessage()
@@ -29,12 +30,11 @@ async function setup(params) {
             let speedval = document.cookie.split('; ').find(row => row.startsWith('speed='))?.split('=')[1];
             speed.value = parseInt(speedval != undefined ? parseInt(speedval) : 1000);
 
-            let chatRoom = document.getElementById("chatroom");
-            chatRoom.textContent = document.cookie.split('; ').find(row => row.startsWith('room='))?.split('=')[1];
-
             let userName = document.getElementById("chatname");
             userName.textContent = document.cookie.split('; ').find(row => row.startsWith('name='))?.split('=')[1];
 
+            let chatRoom = document.getElementById("chatroom");
+            
             color.addEventListener('input', function() {
                 document.cookie = `color=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
@@ -43,7 +43,7 @@ async function setup(params) {
                 document.cookie = `speed=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
 
-            chatRoom.addEventListener('input', function() {
+            chatRoom.addEventListener('change', function() {
                 document.cookie = `room=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
 
@@ -51,7 +51,7 @@ async function setup(params) {
                 document.cookie = `name=${this.value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
             });
 
-            chatRoom.addEventListener('input', function() {
+            chatRoom.addEventListener('change', function() {
                 document.getElementById("chat").innerHTML = "";
             });
 
