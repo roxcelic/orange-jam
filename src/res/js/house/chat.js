@@ -37,7 +37,7 @@ function getOldChat(chat){
 }
 
 async function displayChat(interval = null, chat = null, speed = null, delay = 0) {
-    let apiRoot = `api.roxcelic.love/`;
+    let apiRoot = `https://api.roxcelic.love/`;
 
     if (speed != null && interval != null && speed.value != delay){
         console.log("changing chat refresh speed");
@@ -93,7 +93,7 @@ export async function loadChat(delay = 0) {
 }
 
 export async function sendMessage() {
-    let apiRoot = `api.roxcelic.love/`;
+    let apiRoot = `https://api.roxcelic.love/`;
 
     let data = {
         upload: document.getElementById("chatMessage").value,
@@ -122,7 +122,7 @@ export async function sendMessage() {
 
 export async function loadChats() {
     let dropdown = document.getElementById("chatroom");
-    let apiRoot = `api.roxcelic.love/`;
+    let apiRoot = `https://api.roxcelic.love/`;
     
     try {
         let resposne = await fetch(`${apiRoot}api/v1/paths?method=2`);
