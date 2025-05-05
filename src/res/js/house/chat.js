@@ -144,7 +144,10 @@ export async function loadChats() {
 
     chat = chat != null ? `chat/${chat}` : `chat/${document.cookie.split('; ').find(row => row.startsWith('room='))?.split('=')[1]}`;
 
-    document.getElementById(chat).selected = true;
+    let item = document.getElementById(chat);
+    if (item != null){
+        document.getElementById(chat).selected = true;
+    }
 }
 
 function newOption(value) {
