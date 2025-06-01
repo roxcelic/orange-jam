@@ -1,0 +1,30 @@
+---
+interface Props {
+	title: string;
+    desc: string;
+}
+
+const { desc } = Astro.props;
+const { title } = Astro.props;
+
+import '../res/scss/style.scss'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={ desc }/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/icon.svg">
+
+		<script src="../res/js/script"/>
+
+		<meta name="generator" content={Astro.generator} />
+		<title>{ title }</title>
+	</head>
+	<body>
+	    <!--Slot // main content-->
+        <slot />
+	</body>
+</html>
