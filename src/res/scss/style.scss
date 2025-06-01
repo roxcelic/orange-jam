@@ -1,4 +1,153 @@
 @use 'size/mobile';
 @use 'size/desktop';
 
-// global anims
+// global variables
+:root {
+    // display
+        // size
+        --DisplayBaseHeight: 28vw;
+        --DisplayBaseWidth: 32vw;
+        --DisplayBasePadding: 1vh;
+
+        // display colors
+        --DisplyMainColor: rgba(255, 192, 203, 0);
+        --DisplayAltColor: pink;
+        --DisplayTextColor: white;
+    
+        // display background
+        --DisplayBackgroundColor: rgb(0, 0, 0);
+        --DiplayBackgroundImage: url('https://i.pinimg.com/736x/65/98/c5/6598c52a98f39ac51b60a4f47fed457f.jpg');
+            
+            // display background image settings
+            --DisplayBackgroundImageSize: cover;
+            --DIsplayBackgroundImageRepeat: no-repeat;
+            --DisplayBackgroundPosition: auto;
+            --DisplayBackdropFlter: blur(2.5px);
+
+        // display border settings
+        --DisplayBorderSize: 3px;
+        --DisplayBorderColor: pink;
+        --DisplayBorderRadius: 3px;
+        --DisplayBorderStyle: solid;
+
+        // display text
+        --DisplayFontSize: small;
+        --DisplayFontFamily: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        // display dropdown
+            --DisplayDropdownBackgroundColor: pink;
+
+            // display dropdwon text
+            --DisplayDropdownFontColor: white;
+            --DisplayDropdownFontSize: small;
+            --DisplayDropdownFontFamily: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+            // display dropdown border
+                --DisplayDropdownBorderSize: 1px;
+                --DisplayDropdownBorderColor: rgb(255, 255, 255);
+                --DisplayDropdownBorderRadius: 3px;
+                --DisplayDropdownBorderStyle: solid;
+    
+}
+
+
+// global styles
+.content {
+    height: 100vh;
+
+    display: grid;
+    text-align: center;
+    justify-content: center;
+
+    grid-template-columns: 50% 50%;
+
+    .right {
+        display: grid;
+        grid-template-rows: 50% 50%;
+    }
+
+    .display {
+        // resizing
+        resize: none;
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        // sizes
+        height: calc(100% - (var(--DisplayBasePadding) * 4));
+        width: calc(100% - (var(--DisplayBasePadding) * 4));
+
+        max-height: 100%;
+        max-width: 100%;
+
+        z-index: 1;
+
+        margin: var(--DisplayBasePadding);
+        // customisable styles
+            //sizes
+
+            padding: var(--DisplayBasePadding);
+
+            // font
+            color: var(--DisplayTextColor);
+            font-size: var(--DisplayFontSize);
+            font-family: var(--DisplayFontFamily);  
+            
+            // background settings
+            background-color: var(--DisplayBackgroundColor);
+            background-image: var(--DiplayBackgroundImage);
+            background-position: var(--DisplayBackgroundPosition);
+            background-size: var(--DisplayBackgroundImageSize);
+
+            // border
+            border-radius: var(--DisplayBorderRadius);
+
+            border: var(--DisplayBorderSize) var(--DisplayBorderStyle) var(--DisplayBorderColor);
+
+        .menu {
+            // size
+            height: 25px;
+
+            // margin
+            margin: -1vh;
+            margin-bottom: 0;
+
+            // alignments
+            text-align: center;
+
+            // customisable
+                background-color: var(--DisplayBorderColor);
+
+            // dropdown
+            select {
+
+                // customisable
+                    background-color: var(--DisplayDropdownBackgroundColor);
+
+                    // font
+                    color: var(--DisplayDropdownFontColor);
+                    font-size: var(--DisplayDropdownFontSize);
+                    font-family: var(--DisplayDropdownFontFamily);   
+
+                    // border
+                    border-radius: var(--DisplayDropdownBorderRadius);
+                    border: var(--DisplayDropdownBorderSize) var(--DisplayDropdownBorderStyle) var(--DisplayDropdownBorderColor);
+            }
+        }
+
+        .item {
+            background-color: var(--DisplyMainColor);
+            border-radius: var(--DisplayBorderRadius);
+        }
+    }
+}
+
+// document styles
+html {
+    overflow: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}

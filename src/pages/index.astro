@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/astro/main.astro'
+
+import Selection from '../comp/Selection.astro'
+---
+<Layout desc='The base of my website <3' title='Home'>
+    <div class="desktop content">
+        <div class="left">
+            <Selection
+                idbase="1"
+            />
+        </div>
+        <div class="right">
+            <Selection
+                idbase="2"
+            />
+            <Selection
+                idbase="3"
+            />
+        </div>
+    </div>
+    <div class="mobile content">
+        <Selection
+            idbase="4"
+        />
+    </div>
+</Layout>

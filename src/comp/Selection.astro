@@ -1,0 +1,18 @@
+---
+const { idbase } = Astro.props;
+---
+<div class="content display" id={idbase}>
+    
+    <div class="menu">
+        <select name="display content" id={idbase + "menu"}>
+            <option value="base">base</option>
+            <option value="theme">theme</option>
+        </select>
+    </div>
+
+    <div class="item" id={idbase + "item"}>
+        <h1>HEYYYYY</h1>
+        <p>im a test</p>
+    </div>
+
+</div>
