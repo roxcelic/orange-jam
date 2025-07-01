@@ -1,27 +1,23 @@
 ---
 import Layout from '../layouts/astro/main.astro'
-
-import Selection from '../comp/Selection.astro'
 ---
-<Layout desc='The base of my website <3' title='Home'>
-    <div class="desktop content">
-        <div class="left">
-            <Selection
-                idbase="1"
-            />
+
+<Layout desc='The base of my website <3' title='Home' dynamicElements='title,content'>
+    <div class="content">
+        <h1 id="title" class="content">
+            hoii 
+        </h1>
+        
+        <div id="content">
+            this is some random main text hii hiii hiii
         </div>
-        <div class="right">
-            <Selection
-                idbase="2"
-            />
-            <Selection
-                idbase="3"
-            />
+        <div id="content2">
+            2
+            this is some random main text hii hiii hiii
         </div>
-    </div>
-    <div class="mobile content">
-        <Selection
-            idbase="4"
-        />
+        <div id="content3" class="waver">
+            3
+            this is some random main text hii hiii hiii
+        </div>
     </div>
 </Layout>

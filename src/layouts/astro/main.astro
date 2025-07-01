@@ -2,13 +2,14 @@
 interface Props {
 	title: string;
     desc: string;
+    dynamicElements: string;
 }
 
-const { desc="desc", title="home" } = Astro.props;
+const { desc="desc", title="home", dynamicElements="example" } = Astro.props;
 
 import Layout from '../full.astro';
 ---
 
-<Layout desc={desc} title={title}>
+<Layout desc={desc} title={title}, dynamicElements={dynamicElements}>
     <slot />
 </Layout>

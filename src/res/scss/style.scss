@@ -1,177 +1,90 @@
 @use 'size/mobile';
 @use 'size/desktop';
 
+@use 'colors/dark';
+@use 'colors/light';
+
 // global variables
 :root {
-    // display
-        // size
-        --DisplayBaseHeight: 28vw;
-        --DisplayBaseWidth: 32vw;
-        --DisplayBasePadding: 1vh;
 
-        // display colors
-        --DisplyMainColor: rgba(255, 192, 203, 0);
-        --DisplayAltColor: pink;
-        --DisplayTextColor: white;
-    
-        // display background
-        --DisplayBackgroundColor: rgb(0, 0, 0);
-        --DiplayBackgroundImage: url('https://i.pinimg.com/736x/65/98/c5/6598c52a98f39ac51b60a4f47fed457f.jpg');
-            
-            // display background image settings
-            --DisplayBackgroundImageSize: cover;
-            --DIsplayBackgroundImageRepeat: no-repeat;
-            --DisplayBackgroundPosition: auto;
-            --DisplayBackdropFlter: blur(2.5px);
-
-        // display border settings
-        --DisplayBorderSize: 3px;
-        --DisplayBorderColor: pink;
-        --DisplayBorderRadius: 3px;
-        --DisplayBorderStyle: solid;
-
-        // display text
-        --DisplayFontSize: small;
-        --DisplayFontFamily: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-        // display dropdown
-            --DisplayDropdownBackgroundColor: pink;
-
-            // display dropdwon text
-            --DisplayDropdownFontColor: white;
-            --DisplayDropdownFontSize: small;
-            --DisplayDropdownFontFamily: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-            // display dropdown border
-                --DisplayDropdownBorderSize: 1px;
-                --DisplayDropdownBorderColor: rgb(255, 255, 255);
-                --DisplayDropdownBorderRadius: 3px;
-                --DisplayDropdownBorderStyle: solid;
-    
 }
-
 
 // global styles
-.content {
-    height: 100vh;
-
-    display: grid;
-    text-align: center;
-    justify-content: center;
-
-    grid-template-columns: 50% 50%;
-
-    .right {
-        display: grid;
-        grid-template-rows: 50% 50%;
-    }
-
-    .display {
-        // resizing
-        resize: none;
-        display: block;
-        position: relative;
-
-        // overflow
-        overflow-x: hidden;
-        overflow-y: scroll;
-
-        // sizes
-        height: calc(100% - (var(--DisplayBasePadding) * 4));
-        width: calc(100% - (var(--DisplayBasePadding) * 4));
-
-        max-height: 100vh;
-        max-width: 100%;
-
-        z-index: 1;
-
-        margin: var(--DisplayBasePadding);
-        // customisable styles
-            //sizes
-
-            padding: var(--DisplayBasePadding);
-
-            // font
-            color: var(--DisplayTextColor);
-            font-size: var(--DisplayFontSize);
-            font-family: var(--DisplayFontFamily);  
-            
-            // background settings
-            background-color: var(--DisplayBackgroundColor);
-            background-image: var(--DiplayBackgroundImage);
-            background-position: var(--DisplayBackgroundPosition);
-            background-size: var(--DisplayBackgroundImageSize);
-
-            // border
-            border-radius: var(--DisplayBorderRadius);
-
-            border: var(--DisplayBorderSize) var(--DisplayBorderStyle) var(--DisplayBorderColor);
-
-        .menu {
-            // size
-            height: 25px;
-
-            // position / display
-
-            // margin
-            margin: -1vh;
-            margin-bottom: 0;
-
-            // alignments
-            text-align: center;
-
-            // customisable
-                background-color: var(--DisplayBorderColor);
-
-            // dropdown
-            select {
-
-                // customisable
-                    background-color: var(--DisplayDropdownBackgroundColor);
-
-                    // font
-                    color: var(--DisplayDropdownFontColor);
-                    font-size: var(--DisplayDropdownFontSize);
-                    font-family: var(--DisplayDropdownFontFamily);   
-
-                    // border
-                    border-radius: var(--DisplayDropdownBorderRadius);
-                    border: var(--DisplayDropdownBorderSize) var(--DisplayDropdownBorderStyle) var(--DisplayDropdownBorderColor);
-            }
-        }
-
-        .item {
-            background-color: var(--DisplyMainColor);
-            border-radius: var(--DisplayBorderRadius);
-        }
-    }
-}
-
-// box themes
-.themeBox {
-    text-align: start !important;
-}
-
-// document styles
-html {
-    overflow: hidden;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-}
-
-input {
+html * {
     // font
-    color: var(--DisplayTextColor);
-    font-size: var(--DisplayFontSize);
-    font-family: var(--DisplayFontFamily);  
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 8;
+    font-style: normal;
+    color: var(--font-color);
 
     // background
-    background-color: var(--DisplayBackgroundColor);
-                   
-    // border                
-    border-radius: var(--DisplayDropdownBorderRadius);                
-    border: var(--DisplayDropdownBorderSize) var(--DisplayDropdownBorderStyle) var(--DisplayDropdownBorderColor);
+    background-color: var(--background-color);
+}
+
+main {
+    text-align: center;
+}
+
+
+// maincontent
+.content, .content * {
+    // content
+    display: block;
+
+    margin-top: 25vh;
+    opacity: 0;
+
+    // anims
+    animation-name: jump;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+.content h1 {
+    animation-delay: 0s;
+}
+.content div:nth-child(1) {
+  animation-delay: 3s;
+}
+.content div:nth-child(2) {
+  animation-delay: 6s;
+}
+.content div:nth-child(3) {
+  animation-delay: 9s;
+}
+.content *{
+    animation-delay: 12s;
+}
+
+// opacity wavor
+.waver {
+    animation-name: waver;
+    animation-duration: 1s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes jump {
+  0% {
+        margin-top: 25vh;
+        opacity: 0;
+    }
+  100% {
+        margin-top: 0px;
+        opacity: 0.9;
+    }
+}
+
+@keyframes waver {
+    0% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.9;
+    }
 }

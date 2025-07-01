@@ -2,10 +2,12 @@
 interface Props {
 	title: string;
     desc: string;
+	dynamicElements: string;
 }
 
 const { desc } = Astro.props;
 const { title } = Astro.props;
+const {dynamicElements} = Astro.props;
 
 import '../res/scss/style.scss'
 ---
@@ -20,11 +22,20 @@ import '../res/scss/style.scss'
 
 		<script src="../res/js/script"/>
 
+		<!--font-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+		<!--astro-->
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
 	</head>
 	<body>
 	    <!--Slot // main content-->
-		<slot />			
+		<main>
+				<slot />			
+		</main>
 	</body>
+
 </html>
