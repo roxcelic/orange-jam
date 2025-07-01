@@ -10,6 +10,14 @@
 }
 
 // global styles
+html {
+    // background
+    background-color: var(--background-color);
+
+    // no moving
+    overflow: hidden;
+}
+
 html * {
     // font
     font-family: "Pixelify Sans", sans-serif;
@@ -17,23 +25,56 @@ html * {
     font-weight: 8;
     font-style: normal;
     color: var(--font-color);
-
-    // background
-    background-color: var(--background-color);
 }
 
 main {
     text-align: center;
 }
 
+.contentHold {
+    backdrop-filter: blur(5px);
+    border-radius: 13px;
+    
+    border-left: 0.5px solid white;
+    border-right: 0.5px solid white;
+}
+
+#mainCNV {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100vw;
+    height: 100vw;
+}
+
+// title
+#titlebar {
+    display: block;
+    text-align: center;
+
+    //anim
+    margin-top: 0vh;
+    animation-name: fall;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#titlebar * {
+    //underline
+    // border-bottom: 1px solid white;
+    // border-radius: 2.5px;
+}
 
 // maincontent
 .content, .content * {
     // content
     display: block;
 
-    margin-top: 25vh;
+    margin-top: 0vh;
     opacity: 0;
+    white-space: pre;
 
     // anims
     animation-name: jump;
@@ -44,13 +85,13 @@ main {
 .content h1 {
     animation-delay: 0s;
 }
-.content div:nth-child(1) {
+.content p:nth-child(1) {
   animation-delay: 3s;
 }
-.content div:nth-child(2) {
+.content p:nth-child(2) {
   animation-delay: 6s;
 }
-.content div:nth-child(3) {
+.content p:nth-child(3) {
   animation-delay: 9s;
 }
 .content *{
@@ -65,7 +106,18 @@ main {
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
 }
+.waverSuper {
+    animation-name: waverSuper;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+.waverSuper:hover {
+    opacity: 1;
+}
 
+// animations
 @keyframes jump {
   0% {
         margin-top: 25vh;
@@ -77,12 +129,35 @@ main {
     }
 }
 
+@keyframes fall {
+    0% {
+          margin-top: -25vh;
+          opacity: 0;
+      }
+    100% {
+          margin-top: 0px;
+          opacity: 0.9;
+      }
+  }
+
 @keyframes waver {
     0% {
         opacity: 0.9;
     }
     50% {
-        opacity: 1;
+        opacity: 0.91;
+    }
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes waverSuper {
+    0% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.75;
     }
     100% {
         opacity: 0.9;

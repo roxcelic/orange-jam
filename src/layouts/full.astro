@@ -7,8 +7,8 @@ interface Props {
 
 const { desc } = Astro.props;
 const { title } = Astro.props;
-const {dynamicElements} = Astro.props;
 
+import Title from '../comp/title.astro';
 import '../res/scss/style.scss'
 ---
 
@@ -32,6 +32,12 @@ import '../res/scss/style.scss'
 		<title>{ title }</title>
 	</head>
 	<body>
+		<!--the background canvas, for weather effects and such-->
+		<canvas id="mainCNV" />
+
+		<!--title bar yay-->
+		<Title />
+
 	    <!--Slot // main content-->
 		<main>
 				<slot />			

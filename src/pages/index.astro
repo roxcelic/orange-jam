@@ -3,21 +3,16 @@ import Layout from '../layouts/astro/main.astro'
 ---
 
 <Layout desc='The base of my website <3' title='Home' dynamicElements='title,content'>
-    <div class="content">
-        <h1 id="title" class="content">
-            hoii 
-        </h1>
-        
-        <div id="content">
-            this is some random main text hii hiii hiii
-        </div>
-        <div id="content2">
-            2
-            this is some random main text hii hiii hiii
-        </div>
-        <div id="content3" class="waver">
-            3
-            this is some random main text hii hiii hiii
+        <div class="content waver contentHold" style="margin-top: 25vh;">
+
+            <h1 id="title">
+                hoii 
+            </h1>
+            
+            <p id="content" />
+            <div style="width: 100%;display:flex;justify-content: center;">
+                <img src="/stupid.gif" style="text-align: center;">
+            </div>
         </div>
     </div>
 </Layout>

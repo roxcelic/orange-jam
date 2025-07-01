@@ -5,26 +5,16 @@ export let documentContent = {
                 elementId: "title",
                 speed: 5,
                 stop: false,
-                signifier: "_"
+                signifier: "_",
+                text: "hoiiii"
             },
             {
                 elementId: "content",
                 speed: 5,
                 stop: true,
-                signifier: "_"
+                signifier: "_",
+                text: "heyyy, thank you for visiting this website, were currently under construction so expect changes \n please come back later!"
             },
-            {
-                elementId: "content2",
-                speed: 5,
-                stop: true,
-                signifier: "_"
-            },
-            {
-                elementId: "content3",
-                speed: 5,
-                stop: true,
-                signifier: "_"
-            }
         ]
     }
 };
