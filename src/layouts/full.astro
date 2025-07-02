@@ -35,13 +35,15 @@ import '../res/scss/style.scss'
 		<!--the background canvas, for weather effects and such-->
 		<canvas id="mainCNV" />
 
-		<!--title bar yay-->
-		<Title />
+		<div class="contentHold">
+			<!--title bar yay-->
+			<Title />
 
-	    <!--Slot // main content-->
-		<main>
+	    	<!--Slot // main content-->
+			<main>
 				<slot />			
-		</main>
+			</main>
+		</div>
 	</body>
 
 </html>

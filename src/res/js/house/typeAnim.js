@@ -3,16 +3,12 @@ let type = (currentText, fullText, signifier = "_") => {
     let hadSignifier = false;
     let newline = false;
 
-    console.log(currentText);
-    console.log(currentText.length);
-
     // remove the signifier
     if (currentText[currentText.length - 1] == signifier) {
         currentText = currentText.substring(0, currentText.length - 1);
         hadSignifier = true;
     }
 
-    console.log(fullText);
     if (currentText != fullText) currentText += fullText[currentText.length] != undefined ? fullText[currentText.length]  : "";
 
     // if next character is a space just add it

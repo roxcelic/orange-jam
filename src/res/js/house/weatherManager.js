@@ -1,15 +1,17 @@
 // basic config
+let today = new Date();
+
 let weatherData = {
     config: {
-        color: "red",
+        color: `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, 1)`,
         backgroundColor: "black",
         delay: 25,
         direction: {
             x: 1,
             y: 12
         },
-        amount: 200,
-        spawnDelay: 50,
+        amount: 250,
+        spawnDelay: 25,
         loop: true
     },
     shapes: {
@@ -104,7 +106,9 @@ let drawOnWeather = () => {
     let ctx = canvas.getContext("2d");
 
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight * 1.25;
+
+    console.log(weatherData.config.color);
 
     // spawn them all yayyyy
     function delayedDraw(i) {

@@ -1,3 +1,5 @@
+
+
 export let documentContent = {
     "Home": {
         items: [
@@ -13,7 +15,14 @@ export let documentContent = {
                 speed: 5,
                 stop: true,
                 signifier: "_",
-                text: "heyyy, thank you for visiting this website, were currently under construction so expect changes \n please come back later!"
+                text: "Told you changes are happening can you beleive this???"
+            },
+            {
+                elementId: "content2",
+                speed: 5,
+                stop: true,
+                signifier: "_",
+                text: "it should also now proabably work on mobile phones? next thing is to add the api content"
             },
         ]
     }
