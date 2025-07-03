@@ -1,28 +1,44 @@
-
+import { call } from "./api";
 
 export let documentContent = {
     "Home": {
         items: [
             {
                 elementId: "title",
-                speed: 5,
+                speed: 3,
                 stop: false,
                 signifier: "_",
-                text: "hoiiii"
+                text: async () => {
+                    return `hoiiii`;
+                }
             },
             {
                 elementId: "content",
-                speed: 5,
+                speed: 3,
                 stop: true,
                 signifier: "_",
-                text: "Told you changes are happening can you beleive this???"
+                text: async () => {
+                    return "you can now connect to the api look!!";
+                }
             },
             {
                 elementId: "content2",
-                speed: 5,
+                speed: 3,
                 stop: true,
                 signifier: "_",
-                text: "it should also now proabably work on mobile phones? next thing is to add the api content"
+                text: async () => {
+                    let spotifyApi = await call("spotify");
+                    return `api status: ${(await call()).status == "online" ? `connected and heres a demo, you can see im listening to ${spotifyApi == null ? "nothing ):" : `${spotifyApi.track.title} by ${spotifyApi.album.artists[0].name}!`}` : "disconnected"}`;
+                }
+            },
+            {
+                elementId: "content3",
+                speed: 3,
+                stop: true,
+                signifier: "_",
+                text: async () => {
+                    return `${(await call()).status == "online" ? `${}` : "" }`;
+                }
             },
         ]
     }

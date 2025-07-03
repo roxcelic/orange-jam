@@ -6,6 +6,6 @@ import { drawOnWeather } from "./house/weatherManager";
 drawOnWeather();
 
 // this should give everything listed in ./house/content.js a nice little typeing animaiton
-documentContent[document.title].items.forEach(element => {
-	typeOutTag(element.elementId, element.speed, element.stop, element.signifier, element.text);
-});
+for (let element of documentContent[document.title].items) {
+    typeOutTag(element.elementId, element.speed, element.stop, element.signifier, await element.text());
+}
