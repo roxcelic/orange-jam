@@ -1,4 +1,5 @@
 import { call, post } from "./api";
+import { weatherData } from "./weatherManager";
 
 let chat = {
     elements: {
@@ -13,7 +14,8 @@ let chat = {
     config: {
         api: {
             chatView: (chatName) => {return `chat/view?chatName=${chatName}`},
-            chatPost: () => {return `chat/post?chatName`}
+            chatPost: () => {return `chat/post?chatName`},
+            isAdmin: async () => {return (await call("admin")).status == "admin"}
         }
     },
     run: {
@@ -31,6 +33,9 @@ let chat = {
 
             setInterval(async () => {
                 chat.run.loadChat();
+
+                // update chat color
+                document.documentElement.style.setProperty("--chatBg", weatherData.config.color(0.5));
             }, delay); 
 
         },
@@ -45,14 +50,14 @@ let chat = {
 
             console.log(data);
 
-            chat.elements.chat.value = "";
+            chat.elements.messageBox.value = "";
 
             await post("chat/post", data);
             chat.run.loadChat();
         },
         // this will return all new messages
         async getNewMessages() {
-            let data = await call(chat.config.api.chatView());
+            let data = await call(chat.config.api.chatView(chat.elements.chatNameBox.value));
             data.chat = Array.isArray(data.chat) ? data.chat : [["basic message", "#783432", 0]];
 
             let previousMessages = chat.run.getOldMessages();
@@ -123,12 +128,15 @@ let chat = {
         async loadChatRooms () {
             try {
                 let data = await call("paths?method=2");;
+                let admin = await chat.config.api.isAdmin();
             
                 data.forEach(item => {
                     // removes the .json
                     item = item.substring(0, item.length - 5);
         
                     if (item != "admin"){
+                        chat.elements.chatNameBox.appendChild(chat.run.newOption(item));
+                    } else if (admin) {
                         chat.elements.chatNameBox.appendChild(chat.run.newOption(item));
                     }
                 });
@@ -142,9 +150,9 @@ let chat = {
             chat.elements.sendButton.addEventListener("click", this.sendMessage);
 
             // allows you to send with the enter button
-            chat.elements.chat.addEventListener('keydown', function(event) {
+            chat.elements.messageBox.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
-                    this.sendMessage()
+                    chat.run.sendMessage()
                 }
             });
 

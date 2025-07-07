@@ -1,9 +1,9 @@
 // basic config
 let weatherData = {
     config: {
-        color: () => {
+        color: (opacity = 1) => {
             let today = new Date();
-            return `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, 1)`
+            return `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, ${opacity})`
         },
         backgroundColor: "black",
         delay: 25,
@@ -162,4 +162,4 @@ let drawOnWeather = () => {
     delayedDraw(weatherData.config.amount);
 };
 
-export {drawOnWeather};
+export {drawOnWeather, weatherData};

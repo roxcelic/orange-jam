@@ -18,7 +18,7 @@ export let documentContent = {
                 stop: true,
                 signifier: "_",
                 text: async () => {
-                    return "the chat exists now, but its very jank for now";
+                    return "the chat has been improved, yayy. I think its pmuch finished now, maybe some bug fixing but thats probs it?";
                 }
             },
             {

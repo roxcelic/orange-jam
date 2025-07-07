@@ -6,7 +6,7 @@
 
 // global variables
 :root {
-
+    --chatBg: rgba(255, 0, 102, 0.5);
 }
 
 // global styles
@@ -184,6 +184,7 @@ main {
         max-height: 50vh;
 
         padding: 5px;
+        padding-bottom: 50px;
 
         border-bottom: 1px solid white;
 
@@ -191,6 +192,27 @@ main {
 
         // scroll bar
     }
+
+    background-color: var(--chatBg);
+}
+
+.chatConfig {
+    display: grid;
+}
+
+// global default styles
+button, input, select {
+    // positioning
+    margin: auto;
+    display: block;
+
+    // size
+    width: 95%;
+    
+    // colors
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1.5px solid white;
+    border-radius: 3px;
 }
 
 .chatOutline:hover {

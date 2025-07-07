@@ -17,13 +17,9 @@ chat.run.updateChat();
 
 // if not function why function shaped #melienialCore
 let compare = (target, comparison) => {
-    if (target == comparison) return true;
-    else if (target.parentElement != undefined) {
-        if (target.parentElement == comparison) return true;
-
-        else if (target.parentElement.parentElement != undefined) {
-            if (target.parentElement.parentElement == comparison) return true;
-        }
+    while (target != undefined) {
+        if (target == comparison) return true;
+        target = target.parentElement;
     }
 
     return false;
