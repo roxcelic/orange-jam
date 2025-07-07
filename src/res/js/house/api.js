@@ -9,7 +9,7 @@ let call = async (endpoint = "", root = "https://api.roxcelic.love/api/v1/") => 
     }
 };
 
-let post = async (endpoint = "", content = {}, root = "https://api.roxcelic.love/api/v1") => {
+let post = async (endpoint = "", content = {}, root = "https://api.roxcelic.love/api/v1/") => {
     try {
         let response = await fetch(`${root}${endpoint}`, {
             method: "POST",

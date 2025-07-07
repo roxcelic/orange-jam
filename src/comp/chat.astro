@@ -1,3 +1,30 @@
 <div class="chatOutline" id="chatOutLine">
-    <h1>hiii chat test yayy</h1>
+    <div id="chat_chat">
+
+    </div>
+
+    <hr style="margin: 15px auto 15px auto;">
+
+    <input placeholder="name..." id="chat_nameBox" style="width: 100%;">
+    <div id="chatcontainer">
+        <input placeholder="message..." id="chat_messageBox">
+        <input value="#ffffff" type="color" id="chat_colorBox">
+    </div>
+
+    <button id="chat_sendButton">send message</button>
+    
+    <hr>
+
+    <div class="chatcontainer">
+        <p style="min-width: fit-content;">
+            chat speed: &#9; 
+        </p>
+        <input type="number" id="chat_chatSpeed" min="100" max="2000" value=1000>
+    </div>
+    <div class="chatcontainer" style="grid-template-columns: 90% 10%;">
+        <select name="endpoints" id="chat_chatNameBox">
+            <option value="admin">admin chat</option>
+            <option value="">base chat</option>
+        </select>
+    </div>
 </div>

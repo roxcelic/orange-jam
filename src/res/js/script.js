@@ -12,5 +12,33 @@ for (let element of documentContent[document.title].items) {
 }
 
 // opens the chat
-//chat.run.updateChat();
-document.getElementById("chatOutLine").addEventListener("click", chatExpand);
+chat.run.init();
+chat.run.updateChat();
+
+// if not function why function shaped #melienialCore
+let compare = (target, comparison) => {
+    if (target == comparison) return true;
+    else if (target.parentElement != undefined) {
+        if (target.parentElement == comparison) return true;
+
+        else if (target.parentElement.parentElement != undefined) {
+            if (target.parentElement.parentElement == comparison) return true;
+        }
+    }
+
+    return false;
+}
+
+// chat open / close
+let chatDeg = document.getElementById("chatOutLine");
+chatDeg.addEventListener("click", (event) => {
+    chatExpand(event.target, 1, chatDeg);
+});
+
+document.body.addEventListener("click", (event) => {
+    console.log(!compare(event.target, chatDeg));
+
+    if (!compare(event.target, chatDeg)) {
+        chatExpand(event.originalTarget, 2, chatDeg);
+    }
+});

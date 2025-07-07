@@ -18,7 +18,7 @@ export let documentContent = {
                 stop: true,
                 signifier: "_",
                 text: async () => {
-                    return "you can now connect to the api look!!";
+                    return "the chat exists now, but its very jank for now";
                 }
             },
             {

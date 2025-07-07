@@ -150,6 +150,9 @@ main {
 
 // chatSlider
 .chatOutline {
+    // background
+    background-color: rgba(0, 0, 0, 0.75);
+
     // positioning
     position: absolute;
 
@@ -172,6 +175,22 @@ main {
 
     // animating
     transition: all ease-in-out 0.3s;
+
+    #chat_chat{
+        border-radius: inherit;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        max-height: 50vh;
+
+        padding: 5px;
+
+        border-bottom: 1px solid white;
+
+        overflow-y: scroll;
+
+        // scroll bar
+    }
 }
 
 .chatOutline:hover {
@@ -227,4 +246,18 @@ main {
     100% {
         opacity: 0.9;
     }
+}
+
+body * ::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+body * ::-webkit-scrollbar-track-piece {
+    background-color: #0077ff;
+}
+
+body * ::-webkit-scrollbar-thumb:vertical {
+    height: 30px;
+    background-color: #0a4c95;
 }

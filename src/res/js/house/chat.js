@@ -2,13 +2,13 @@ import { call, post } from "./api";
 
 let chat = {
     elements: {
-        chat: document.getElementById("chat/chat"),
-        sendButton: document.getElementById("chat/sendButton"),
-        messageBox: document.getElementById("chat/messageBox"),
-        colorBox: document.getElementById("chat/colorBox"),
-        nameBox: document.getElementById("chat/nameBox"),
-        chatNameBox: document.getElementById("chat/chatNameBox"),
-        chatSpeed: document.getElementById("chat/chatSpeed")
+        chat: document.getElementById("chat_chat"),
+        sendButton: document.getElementById("chat_sendButton"),
+        messageBox: document.getElementById("chat_messageBox"),
+        colorBox: document.getElementById("chat_colorBox"),
+        nameBox: document.getElementById("chat_nameBox"),
+        chatNameBox: document.getElementById("chat_chatNameBox"),
+        chatSpeed: document.getElementById("chat_chatSpeed")
     },
     config: {
         api: {
@@ -37,11 +37,13 @@ let chat = {
         // sends the current loaded message
         async sendMessage() {
             let data = {
-                upload: chat.elements.chat.value,
+                upload: chat.elements.messageBox.value,
                 color: chat.elements.colorBox.value,
                 name: chat.elements.nameBox.value,
                 chatName: chat.elements.chatNameBox.value
             }
+
+            console.log(data);
 
             chat.elements.chat.value = "";
 
@@ -99,7 +101,7 @@ let chat = {
                 newMessage.textContent = message[0];
                 newMessage.style.color = message[1];
                 
-                window.scrollTo(0, document.body.scrollHeight);
+                chat.elements.chat.scrollTo(0, chat.elements.chat.scrollHeight);
             
                 pappaMessage.appendChild(newMessage);
                 return pappaMessage;
@@ -137,12 +139,12 @@ let chat = {
         // initialises everything
         async init () {
             // send button
-            chat.elements.sendButton.addEventListener("click", sendMessage);
+            chat.elements.sendButton.addEventListener("click", this.sendMessage);
 
             // allows you to send with the enter button
             chat.elements.chat.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
-                    sendMessage()
+                    this.sendMessage()
                 }
             });
 
@@ -151,7 +153,7 @@ let chat = {
 
             // resets the document on chatroom change
             chat.elements.chatNameBox.addEventListener('change', function() {
-                document.getElementById("chat").innerHTML = "";
+                chat.elements.chat.innerHTML = "";
             });
         }
     }
@@ -160,11 +162,13 @@ let chat = {
 function chatExpand (event = null, type = 1, el = this) {
     let classes = el.getAttribute("class").split(" ");
 
-    console.log(type);
-
     switch (type) {
         case 1:
             if (!classes.includes("open")) classes.push("open");
+
+            break;
+        case 2:
+            if (classes.includes("open")) classes = classes.filter(e => e !== 'open');   
 
             break;
     }
