@@ -1,9 +1,10 @@
 // basic config
-let today = new Date();
-
 let weatherData = {
     config: {
-        color: () => {return `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, 1)`},
+        color: () => {
+            let today = new Date();
+            return `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, 1)`
+        },
         backgroundColor: "black",
         delay: 25,
         direction: {
@@ -22,6 +23,7 @@ let weatherData = {
         line: (ctx, start, end, origin, format) => {
             switch(format) {
                 case 0:
+                    ctx.strokeStyle = weatherData.config.color();
                     ctx.beginPath();
                     ctx.moveTo(start.x, start.y);
                     ctx.lineTo(end.x, end.y);
@@ -29,9 +31,32 @@ let weatherData = {
 
                     break;
                 case 1:
+                    ctx.strokeStyle = weatherData.config.backgroundColor;
                     ctx.beginPath();
                     ctx.moveTo(origin.x, origin.y);
                     ctx.lineTo(end.x, end.y);
+                    ctx.stroke();
+                    
+                    break;
+            }
+        },
+        snow: (ctx, start, end, origin, format) => {
+            switch(format) {
+                case 0:
+                    ctx.strokeStyle = "white";
+                    ctx.beginPath();
+                    ctx.arc(start.x, start.y, 2.5, 0, 2 * Math.PI);
+                    ctx.fillStyle = "white";
+                    ctx.fill();
+                    ctx.stroke();
+
+                    break;
+                case 1:
+                    ctx.strokeStyle = weatherData.config.backgroundColor;
+                    ctx.beginPath();
+                    ctx.arc(end.x, end.y, 20, 0, 2 * Math.PI);
+                    ctx.fillStyle = weatherData.config.backgroundColor;
+                    ctx.fill();
                     ctx.stroke();
                     
                     break;
@@ -49,11 +74,9 @@ let moveShape = (shape, ctx, current, next, origin, id) => {
     ctx.lineWidth = weatherData.storage[id].size;
 
     // remove shape
-    ctx.strokeStyle = weatherData.config.backgroundColor;
     shape(ctx, current.start, current.end, origin, 1);
 
     // draw shape
-    ctx.strokeStyle = weatherData.config.color();
     shape(ctx, next.start, next.end, origin, 0);    
 
     return next;

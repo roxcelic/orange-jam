@@ -9,6 +9,8 @@ const { desc } = Astro.props;
 const { title } = Astro.props;
 
 import Title from '../comp/title.astro';
+import Chat from '../comp/chat.astro';
+
 import '../res/scss/style.scss'
 ---
 
@@ -44,6 +46,9 @@ import '../res/scss/style.scss'
 			<main>
 				<slot />			
 			</main>
+
+			<!--chat-->
+			<Chat />
 		</div>
 	</body>
 

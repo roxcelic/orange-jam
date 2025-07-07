@@ -1,6 +1,7 @@
 import { documentContent } from "./house/content";
 import { typeOutTag } from "./house/typeAnim";
 import { drawOnWeather } from "./house/weatherManager";
+import { chat, chatExpand } from "./house/chat";
 
 // this theoretically should draw on the weather
 drawOnWeather();
@@ -9,3 +10,7 @@ drawOnWeather();
 for (let element of documentContent[document.title].items) {
     typeOutTag(element.elementId, element.speed, element.stop, element.signifier, await element.text());
 }
+
+// opens the chat
+//chat.run.updateChat();
+document.getElementById("chatOutLine").addEventListener("click", chatExpand);

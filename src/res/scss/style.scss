@@ -148,6 +148,40 @@ main {
     opacity: 1;
 }
 
+// chatSlider
+.chatOutline {
+    // positioning
+    position: absolute;
+
+    // sizing
+        // min and max width set to this
+        min-width: 50vw;
+        max-width: 50vw;
+
+    height: 90vh;
+
+    // border
+    border-radius: 13px;
+    border: 1px solid white;
+    border-bottom: none;
+
+    // position
+    bottom: -85vh;
+    left: 12.5vw;
+    right: 12.5vw;
+
+    // animating
+    transition: all ease-in-out 0.3s;
+}
+
+.chatOutline:hover {
+    bottom: -75vh;
+}
+
+.chatOutline.open {
+    bottom: 0vh;
+}
+
 // animations
 @keyframes jump {
   0% {

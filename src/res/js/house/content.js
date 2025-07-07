@@ -37,7 +37,8 @@ export let documentContent = {
                 stop: true,
                 signifier: "_",
                 text: async () => {
-                    return `${(await call()).status == "online" ? `admin status: ${(await call("admin").status)}` : "" }`;
+                    let adminApi = await call("admin");
+                    return `${(await call()).status == "online" ? `admin status: ${adminApi.status == undefined ? 0 : 1}` : "" }`;
                 }
             },
         ]
