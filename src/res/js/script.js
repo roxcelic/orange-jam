@@ -1,6 +1,6 @@
 import { documentContent } from "./house/content";
 import { typeOutTag } from "./house/typeAnim";
-import { drawOnWeather } from "./house/weatherManager";
+import { drawOnWeather, weatherData } from "./house/weatherManager";
 import { chat, chatExpand } from "./house/chat";
 
 // this theoretically should draw on the weather
@@ -38,3 +38,5 @@ document.body.addEventListener("click", (event) => {
         chatExpand(event.originalTarget, 2, chatDeg);
     }
 });
+
+document.getElementById("clearRain").addEventListener("click", weatherData.run.reset)

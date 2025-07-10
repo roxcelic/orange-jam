@@ -48,13 +48,22 @@ let chat = {
                 chatName: chat.elements.chatNameBox.value
             }
 
-            console.log(data);
-
             chat.elements.messageBox.value = "";
 
             await post("chat/post", data);
             chat.run.loadChat();
         },
+        /* provided by
+        https://gist.github.com/ZeeshanMukhtar1/d313da2c0aaa997c4125fcb2e2ca9c77
+        */
+        checkImageURL (url) {
+            if (!url) return false
+            else {
+                const pattern = new RegExp('^https?:\\/\\/.+\\.(png|jpg|jpeg|bmp|gif|webp)$', 'i');
+                return pattern.test(url);
+            }
+        },
+
         // this will return all new messages
         async getNewMessages() {
             let data = await call(chat.config.api.chatView(chat.elements.chatNameBox.value));
@@ -92,8 +101,34 @@ let chat = {
                     month: '2-digit',
                     year: 'numeric'
                 }).format(new Date(message[4]));
-                
+
+                let attachment = {
+                    added: false,
+                    url: ""
+                }
+
+                let messages = message[0].split(" ");
+                let messageContent = "";
+
+                messages.forEach(mess => {
+                    let newContent = `${mess} `;
+                    if (mess.slice(0, 8) == "https://" || mess.slice(0, 7) == "http://") {
+                        if (chat.run.checkImageURL(mess)) {
+                            attachment.added = true;
+                            attachment.url = mess;
+                            newContent = "";
+                        } else {
+                            newContent = `<a href="${mess}">${mess}</a>`;
+                        }
+                    }
+
+                    messageContent += newContent;
+                });
+
+                console.log(messageContent);
+
                 let pappaMessage = document.createElement("P");
+                pappaMessage.className = "host";
                 pappaMessage.style.fontSize = "xx-small";
                 pappaMessage.style.marginTop = "5px";
                 pappaMessage.style.marginLeft = "5px";
@@ -101,16 +136,27 @@ let chat = {
                 pappaMessage.id = message[2];
                 
                 let newMessage = document.createElement("P");
+                newMessage.className = "chatMessage";
                 newMessage.style.fontSize = "medium";
                 newMessage.style.marginLeft = "-5px";
-                newMessage.textContent = message[0];
+                newMessage.innerHTML = messageContent;
                 newMessage.style.color = message[1];
+
+                pappaMessage.appendChild(newMessage);
+
+                if (attachment.added) {
+                    let image = document.createElement("img");
+                    image.className = "chatImage";
+                    image.src = attachment.url;
+
+                    pappaMessage.appendChild(image);
+                }
                 
                 chat.elements.chat.scrollTo(0, chat.elements.chat.scrollHeight);
             
-                pappaMessage.appendChild(newMessage);
                 return pappaMessage;
             } catch (e) {
+                console.log(e);
                 return document.createElement("P");
             }
         },

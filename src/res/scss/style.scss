@@ -155,11 +155,12 @@ main {
 
     // positioning
     position: absolute;
+    left: -12vw;
 
     // sizing
         // min and max width set to this
-        min-width: 50vw;
-        max-width: 50vw;
+        min-width: 99vw;
+        max-width: 99vw;
 
     height: 90vh;
 
@@ -170,8 +171,6 @@ main {
 
     // position
     bottom: -85vh;
-    left: 12.5vw;
-    right: 12.5vw;
 
     // animating
     transition: all ease-in-out 0.3s;
@@ -181,7 +180,7 @@ main {
 
         background-color: rgba(0, 0, 0, 0.5);
 
-        max-height: 50vh;
+        max-height: 40vh;
 
         padding: 5px;
         padding-bottom: 50px;
@@ -189,15 +188,68 @@ main {
         border-bottom: 1px solid white;
 
         overflow-y: scroll;
+        overflow-x: hidden;
 
         // scroll bar
     }
 
-    background-color: var(--chatBg);
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(5px);
 }
 
 .chatConfig {
     display: grid;
+}
+
+.bottomChat {
+    border-radius: inherit;
+
+    border-top: 1px solid white;
+    margin-top: 2.5vh;
+    padding-bottom: 5vh;
+
+    border-radius: inherit;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    max-height: 40vh;
+
+    padding: 5px;
+    padding-bottom: 100px;
+
+    border-bottom: 1px solid white;
+
+    overflow-y: scroll;
+}
+
+.host {
+    border-bottom: 1px solid white;
+}
+
+.config {
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.config .chatConfig {
+    border-right: 1px solid white !important;
+}
+
+.chatMessage {
+    padding: 0;
+    margin: 1vh;
+}
+
+.chatImage {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 13px;
+    border: 1px solid white;
+}
+
+#chat_messageBox {
+    min-height: 5vh;
 }
 
 // global default styles

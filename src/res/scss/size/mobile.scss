@@ -15,4 +15,13 @@
         left: 0 !important;
         right: 0 !important;
     }
+
+    .config {
+        display: grid;
+        grid-template-columns: 100% !important;
+    }
+    
+    .config .chatConfig {
+        border-right: none !important;
+    }
 }
