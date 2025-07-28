@@ -2,21 +2,19 @@
 let weatherData = {
     config: {
         color: (opacity = 1) => {
-            let today = new Date();
-            return `rgba(${255 * (today.getMinutes() / 60)}, ${255 * (today.getHours() / 24)}, ${255 * (today.getDay() / 31)}, ${opacity})`
+            return `red`
         },
         extend: {
             distance: 0.5,
             color: (opacity = 1) => {
-                let today = new Date();
-                return `rgba(${255 * (1 - (today.getMinutes() / 60))}, ${255 * (1 - (today.getHours() / 24))}, ${255 * (1 - (today.getDay() / 31))}, ${opacity})`
+                return ``
             }
         },
-        backgroundColor: "black",
+        backgroundColor: "#0000000a",
         delay: 50,
         direction: {
-            x: 1,
-            y: 8
+            x: 0,
+            y: 4
         },
         clearExtra: {
             distance: 7,
@@ -187,7 +185,9 @@ let trackShape = (id, shape, ctx, canvas) => {
 
 // this is the start function
 let drawOnWeather = () => {
-    let canvas = document.getElementById("mainCNV");
+    let canvas = document.getElementById("banner");
+    if (canvas.style.backgroundImage != 'url("undefined")' || canvas.style.display == "none") return;
+
     let ctx = canvas.getContext("2d");
 
     // store these values

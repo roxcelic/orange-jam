@@ -2,31 +2,31 @@
 interface Props {
 	title: string;
     desc: string;
-	dynamicElements: string;
+	wallpaper: string;
 }
 
 const { desc } = Astro.props;
 const { title } = Astro.props;
-
-import Title from '../comp/title.astro';
-import Chat from '../comp/chat.astro';
+const { wallpaper } = Astro.props;
 
 import '../res/scss/style.scss'
+
+import Titlebar from '../comp/titlebar.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style=`background-image: url(${wallpaper});`>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={ desc }/>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/icon.svg">
 
 		<script src="../res/js/script"/>
 
 		<!--font-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=send" />
 		<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 
 		<!--astro-->
@@ -34,22 +34,10 @@ import '../res/scss/style.scss'
 		<title>{ title }</title>
 	</head>
 	<body>
-		<!--the background canvas, for weather effects and such-->
-		<canvas id="mainCNV" />
-		<div id="screenFilter" />
-
-		<div class="contentHold">
-			<!--title bar yay-->
-			<Title />
-
-	    	<!--Slot // main content-->
-			<main>
-				<slot />			
-			</main>
-
-			<!--chat-->
-			<Chat />
-		</div>
+		<main>
+			<Titlebar />
+			<slot />			
+		</main>
 	</body>
 
 </html>

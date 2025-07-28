@@ -1,5 +1,4 @@
 import { call, post } from "./api";
-import { weatherData } from "./weatherManager";
 
 let chat = {
     elements: {
@@ -35,7 +34,6 @@ let chat = {
                 chat.run.loadChat();
 
                 // update chat color
-                document.documentElement.style.setProperty("--chatBg", weatherData.config.color(0.5));
             }, delay); 
 
         },
@@ -138,9 +136,12 @@ let chat = {
                 let newMessage = document.createElement("P");
                 newMessage.className = "chatMessage";
                 newMessage.style.fontSize = "medium";
-                newMessage.style.marginLeft = "-5px";
+                newMessage.style.marginLeft = "10px";
                 newMessage.innerHTML = messageContent;
                 newMessage.style.color = message[1];
+
+                let hr = document.createElement("hr");
+                hr.style.width = "85%";
 
                 pappaMessage.appendChild(newMessage);
 
@@ -152,6 +153,8 @@ let chat = {
                     pappaMessage.appendChild(image);
                 }
                 
+                pappaMessage.appendChild(hr);
+
                 chat.elements.chat.scrollTo(0, chat.elements.chat.scrollHeight);
             
                 return pappaMessage;

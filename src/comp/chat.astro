@@ -1,35 +1,28 @@
-<div class="chatOutline" id="chatOutLine">
-    <div id="chat_chat" />
+<div id="chat_chat" />
 
-    <br>
+<br>
 
-    <div style="display: grid; grid-template-columns: 75% 25%; width: 95%;margin:auto;">
-        <input placeholder="name..." id="chat_nameBox" style="margin: 0; width: 99%">
-        <button id="chat_sendButton"  style="margin: 0; width: 99%;">send message</button>
-    </div>
+<hr>    
 
-    <div id="chatcontainer">
-        <input placeholder="message..." id="chat_messageBox">
-    </div>        
-    <div class="bottomChat">
+<input placeholder="name..." id="chat_nameBox">
 
-        <div class="config">
-            <div class="chatConfig">
-                <p>chat config: (speed, color, room)</p>
 
-                <input type="number" id="chat_chatSpeed" min="100" max="2000" value=1000>
-                <input value="#ffffff" type="color" id="chat_colorBox">
-        
-        
-                <select name="endpoints" id="chat_chatNameBox">
-                    <option value="">base chat</option>
-                </select>
-            </div>
-            <hr class="mobile">
-            <div class="confconf">
-                <p>chat config: (speed, color, room)</p>
-                <button id="clearRain"> clear rain </button>
-            </div>
-        </div>
-    </div>
+<div style="display: grid; grid-template-columns: 95% 5%; width: 95%;margin:auto;">
+    <input placeholder="message..." id="chat_messageBox">
+    <button id="chat_sendButton"  style="margin: 0; width: 99%;">
+        <span class="material-symbols-outlined">
+            send
+        </span>
+    </button>
 </div>
+
+<hr>
+
+<div style="display: grid; grid-template-columns: 10% 90%;">
+    <input value="#ffffff" type="color" id="chat_colorBox">
+    <select name="endpoints" id="chat_chatNameBox">
+        <option value="">base chat</option>
+    </select>
+</div>
+  
+<hr>

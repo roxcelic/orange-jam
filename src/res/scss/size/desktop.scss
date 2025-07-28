@@ -1,10 +1,9 @@
 @media (min-width: 768px) {
+    .desktop {
+        display: block !important;
+    }
+    
     .mobile {
         display: none !important;
-    }
-
-    .contentHold {
-        width: 75vw !important;
-        margin-left: 12.5vw !important;
     }
 }
