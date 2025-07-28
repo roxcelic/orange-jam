@@ -17,7 +17,7 @@ Hey im roxie, angel, mush, mushy, roxcelic, etc (i apparently like to rename mys
 - currently listening to !{api:roxcelic:music}
 
 ## a bit more about this website
-Im trying out a few new things here just to see how they work, like having strings in my text which will be replaced as the page loads. So when i write something in mark down itll be replaced dynamically like `! {api:roxcelic:music}` but without the spaces, id like to work on that finding a more efficient way to do it because itll make it way easier to write things in my api loaded blogs. i could also use it to say the current date !{time:date:currentDate}, the banner can be picked from a few different options, an image, no banner or the animated style one it uses now which used to be the background to my website.
+Im trying out a few new things here just to see how they work, like having strings in my text which will be replaced as the page loads. So when i write something in mark down itll be replaced dynamically like `! {api:roxcelic:music}` but without the spaces, id like to work on that finding a more efficient way to do it because itll make it way easier to write things in my api loaded blogs. i could also use it to say the current date !{time:date:currentDate}, the banner can be picked from a few different options, an image, no banner or the animated style one it uses now which used to be the background to my website. Also i just added a fullscreen button cause i cant read (:
 
 ## credits
 wallpaper/background:

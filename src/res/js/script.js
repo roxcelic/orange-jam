@@ -41,6 +41,13 @@ async function buildPage() {
             break;
     }       
 
+    // fullscreenbutton
+    document.getElementById("fullscreen").addEventListener("click", () => {
+        let main = document.getElementById("main");
+        if (main.style.width == "80vw" || main.style.width == "") main.style.width = "100vw";
+        else main.style.width = "80vw";
+    });
+
     console.log("loaded js..");
 }
 
