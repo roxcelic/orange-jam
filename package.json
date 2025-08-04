@@ -1,17 +1,32 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "strawberry-pie",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "astro": "^5.8.1"
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.4.5",
+    "@types/mdx": "^2.0.13",
+    "next": "15.4.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-draggable": "^4.5.0"
   },
   "devDependencies": {
-    "sass-embedded": "^1.89.1"
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

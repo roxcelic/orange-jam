@@ -1,0 +1,35 @@
+.profileCard {
+    margin: 1vw;
+}
+
+.profileCardContent {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.profileIcon {
+    width: 100px;
+    height: 100px;
+
+    margin: 1vh auto;
+
+    border-radius: 50px;
+
+    background-color: aliceblue;
+
+    background-image: url('https://github.com/roxcelic.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.profileCardSide {
+
+}
+
+.profileCardText {
+    text-align: center;
+}
+
+.profileCardSide h3 {
+    text-align: start;
+}
