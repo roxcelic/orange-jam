@@ -1,0 +1,41 @@
+---
+interface Props {
+	title: string;
+    desc: string;
+}
+
+const { desc, title } = Astro.props;
+
+import '../res/scss/styles.scss'
+
+import TitleBar from '../comp/titleBar.astro';
+
+let date : Date = new Date();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={ desc }/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<script src="../res/js/script"/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+		<meta name="generator" content={Astro.generator} />
+		<title>{ title }</title>
+	</head>
+	<body>
+		<main>
+			<TitleBar />
+			<div id="mcContent">
+				<slot />
+			</div>
+		</main>
+	</body>
+</html>

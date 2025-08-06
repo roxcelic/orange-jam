@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/astro/main.astro';
+
+import BlogPost from '../comp/blogPost.astro';
+
+const allPosts = Object.values(import.meta.glob('./posts/**/*.{md,mdx}', { eager: true }));
+
+---
+<Layout title='blog' desc='you can have my stupid thoughts on a plate (:'>
+<h1>blog</h1>
+
+{allPosts.map((post: any) => <BlogPost title={post.frontmatter.title}, 
+                                        desc={post.frontmatter.desc}, 
+                                        author={post.frontmatter.author},
+                                        url={post.url}, 
+                                        tags={post.frontmatter.tags}, 
+                                        dateUpdated={post.frontmatter.dateUpdated}, 
+                                        dateWritten={post.frontmatter.dateWritten}/>
+)}
+
+</Layout>

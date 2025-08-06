@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+
+    :root {
+        --opacityTextBase: 0.75;
+        --opacityTextHover: 1;
+        --opacityTitleBase: 0.25;
+        --opacityTitleHover: 1;
+    }
+}

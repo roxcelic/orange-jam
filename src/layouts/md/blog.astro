@@ -1,0 +1,11 @@
+---
+const { frontmatter } = Astro.props;
+
+import Layout from '../full.astro';
+
+import BlogBar from '../../comp/blogBar.astro';
+---
+<Layout desc={frontmatter.desc} title={frontmatter.title}>
+    <BlogBar info=`${frontmatter.title} by ${frontmatter.author}, updated on ${frontmatter.dateUpdated}`/>
+    <slot />        
+</Layout>

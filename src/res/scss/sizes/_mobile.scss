@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+
+    :root {
+        --opacityTextBase: 1;
+        --opacityTextHover: 1;
+        --opacityTitleBase: 1;
+        --opacityTitleHover: 1;
+    }
+
+    #mcContent {
+        overflow-x: hidden;
+    }
+}

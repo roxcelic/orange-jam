@@ -1,0 +1,13 @@
+@media (prefers-color-scheme: light) {
+    :root{
+        // text colors
+        --TextBaseColor: rgb(255, 223, 240);
+        --TextAltColor: rgb(255, 168, 214);
+        --TextHeadingColor: white;
+
+        // background
+        --PageBackgroundColor: rgba(10, 0, 5, 0.75);
+        --PageBackgroundImage: url('/wallpaper.png');
+        --PageOpacity: 0.75;
+    }
+}

@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+    desc: string;
+    author: string;
+    url: string;
+    tags: string[];
+    dateUpdated: string;
+    dateWritten: string;
+}
+
+const { desc, title, author, url, tags = [], dateUpdated = '01/01/1999', dateWritten = '01/01/1999' } = Astro.props;
+
+---
+<div class="blogPost">
+    <div class="blogPostDisplay">
+        <div class="blogPostTitle">
+            <p>
+                {title} by {author}
+            </p>
+            <p style="font-size: X-small;">
+                {desc} --- [{tags.join(", ")}]
+            </p>
+        </div>
+        <div class="blogPostDate"> 
+            <p style="font-size: X-small;">
+                {dateWritten} - {dateUpdated}
+            </p>
+            <p>
+                <a href={url}>
+                    {url}
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
