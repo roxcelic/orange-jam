@@ -13,5 +13,4 @@ title: 'Credits'
 
 <div>
     <a href="/"><img src="/88-31.png"></a>
-    <a href="//marsh.zone"><img src="//marsh.zone/88-31.png"></a>
 </div>
