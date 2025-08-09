@@ -1,5 +1,6 @@
 export async function addCPbutton() {
     const collection = document.getElementsByClassName("astro-code");
+    
     for (let item of collection) {
         item.insertBefore(createCPbutton(item), item.children[0]);
     }

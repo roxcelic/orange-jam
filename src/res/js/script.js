@@ -7,8 +7,12 @@ function displayRandomAlbum() {
     let wrapper = document.createElement("div");
 
     let albums = [
-        ["21b4cDNse2AMpj94ykfuON?si=_Ef1a_RDTku08Bi1NbPWLA", "Revengeseekerz", "Jane Remover"]
+        ["21b4cDNse2AMpj94ykfuON?si=_Ef1a_RDTku08Bi1NbPWLA", "Revengeseekerz", "Jane Remover"],
+        ["0ZyaO9oGhq7blYJzo3l65t?si=7XYxtz4FQGSTSNspAO-7SQ", "Cavetown", "Cavetown"],
+        ["15PBs7XGQAByFubUi3cCJV?si=iutTkXDcTAuT3CVvxzmFcw", "Etude of clair", "kakizaki yuta"]
     ];
+
+    //https://open.spotify.com/album/15PBs7XGQAByFubUi3cCJV?si=iutTkXDcTAuT3CVvxzmFcw
     
     let selectedAlbum = albums[Math.floor(Math.random()*albums.length)];
 

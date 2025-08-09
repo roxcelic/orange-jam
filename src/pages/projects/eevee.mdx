@@ -1,0 +1,32 @@
+---
+layout: '../../layouts/md/blog.astro'
+title: eevee
+desc: A remap of the unity input library to allow for remappable inputs at runtime
+author: roxie
+dateWritten: 09/07/2025
+dateUpdated: 09/07/2025
+tags: ["unity", "lib", "game design"]
+---
+
+# heyyyy,
+
+A few weeks ago I started a project for an `input library` of sorts for unity, since I was tired of having to make one every time I started a untiy project.
+
+[github.com/roxcelic/eevee](//github.com/roxcelic/eevee)
+
+I had a huge update to it recently so its been on  my mind, I wrote some docs today for it as well as re-writing the old docs to match the formatting but if im being honest I wasnt the most into it and it taking 3 hours didnt help either, heres the [link](https://github.com/roxcelic/eevee/blob/main/README.md) to it. Its currently on Version `1.1f` so there might be a lot of issues with it, And I will be changing it a lot while I find what features I want and need from it. I will include its changelog below as of this post update which is at <i>{new Date("Sat Aug 09 2025 02:15:38 GMT+0100 (British Summer Time)")}</i>
+
+# changelog
+> the newest version of this will ofc be [here](https://github.com/roxcelic/eevee/blob/main/README.md#changelog)  
+
+## 1.0.5
+as of `1.0.5` we now have the same amount of range as basic unity I/O systems but this has the ability to add configs at runtime. One Key thing is that: **ALL DELAYS AND INPUT STORAGE ARE UNIVERSAL** This results in not being able to have multiple objects being able to check an input at any one time. This shouldnt be an issue as in most typical use and recommended use you will only be checking inputs on the character, but for some projects this wont always be the case, if anyone using this has such an issue I will attempt to find a work around but i do not beleive (in the given nature of this project) that would be possible. 
+
+*As well as it only supporting a single gamepad but that is also how the base unity input system works so i do not feel that is as of the same importance.*
+
+> Its possible that in the future i will make a secondary version that will use Lists of each config so you can assign multiple buttons to each input.
+
+## 1.1
+as of `1.1` there has been a huge amount of revamps to everything, most things work completly now. It has been a while since i tested this before writing all of this, as well as the fact i havent been the most motivated to write these docs as of today so having the do a full re-write of the docs hasnt been the best so theyre probably not the highest quality so i added 2 pages, one with a list of all controller button mappings and another filled with a basic setup for eevee.
+
+**Something i want to do is add a universal control mapping for controllers, so rather than having specific ones of xbox and playstation it would be the same**

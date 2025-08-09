@@ -4,12 +4,13 @@ import Layout from '../layouts/astro/main.astro';
 import BlogPost from '../comp/blogPost.astro';
 
 const allPosts = Object.values(import.meta.glob('./posts/**/*.{md,mdx}', { eager: true }));
-
+const allProjects = Object.values(import.meta.glob('./projects/*.{md,mdx}', { eager: true }));
 ---
 <Layout title='blog' desc='you can have my stupid thoughts on a plate (:'>
 <h1>blog</h1>
 
-{allPosts.map((post: any) => <BlogPost title={post.frontmatter.title}, 
+<div class="postHLD">
+    {allPosts.map((post: any) => <BlogPost title={post.frontmatter.title}, 
                                         desc={post.frontmatter.desc}, 
                                         author={post.frontmatter.author},
                                         url={post.url}, 
@@ -17,5 +18,20 @@ const allPosts = Object.values(import.meta.glob('./posts/**/*.{md,mdx}', { eager
                                         dateUpdated={post.frontmatter.dateUpdated}, 
                                         dateWritten={post.frontmatter.dateWritten}/>
 )}
+</div>
+
+<hr style="margin-top: 5vh;">
+<h1>projects</h1>
+
+<div class="postHLD">
+    {allProjects.map((post: any) => <BlogPost title={post.frontmatter.title}, 
+                                        desc={post.frontmatter.desc}, 
+                                        author={post.frontmatter.author},
+                                        url={post.url}, 
+                                        tags={post.frontmatter.tags}, 
+                                        dateUpdated={post.frontmatter.dateUpdated}, 
+                                        dateWritten={post.frontmatter.dateWritten}/>
+    )}
+</div>
 
 </Layout>
