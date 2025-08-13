@@ -3,8 +3,8 @@ layout: '../../../../layouts/md/blog.astro'
 title: test
 desc: nothing but a test really
 author: roxie
-dateWritten: 06/07/2025
-dateUpdated: 06/07/2025
+dateWritten: 06/08/2025
+dateUpdated: 13/08/2025
 tags: ["test"]
 ---
 

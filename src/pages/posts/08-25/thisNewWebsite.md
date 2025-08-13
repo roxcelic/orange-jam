@@ -3,12 +3,12 @@ layout: '../../../layouts/md/blog.astro'
 title: why do I keep remaking my website
 desc: this is just what I plan to make a huge rant about why i keep doing this to myself
 author: roxie
-dateWritten: 06/07/2025
-dateUpdated: 06/07/2025
+dateWritten: 06/08/2025
+dateUpdated: 13/08/2025
 tags: ["rant", "webdesign"]
 ---
 
-# hii,
+# hii, 
 
 I know Ive re-made my website so many times now. but with the advent of my next college project being to make a "professional" website to demonstrate my skills I figure like... Why not? If I make a profesional style website now I could focus a lot more of my energy into my computer science project with the better hardware I have access to at college so...
 
