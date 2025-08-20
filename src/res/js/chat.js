@@ -1,5 +1,5 @@
 // variables
-let api = "https://api.roxcelic.love";
+let api = "http://localhost:3000";
 
 let elements = {
     form: document.getElementById("chat/form"),
@@ -10,6 +10,8 @@ let elements = {
 
 let lastId = 0;
 let previousChat;
+
+let sendNotifs = false;
 
 // functions
 let sendMessage = async () => {
@@ -93,6 +95,12 @@ let createChat = async (message) => {
 
     main.scrollIntoView({behavior: "smooth"});
     previousChat = message;
+
+    // notifaction
+    if (sendNotifs) {
+        let notification = new Notification("To do list", { body: `new Message from ${message.user.username}` });
+        setTimeout(() => {notification.close(), 10000});
+    }
 };
 
 let fetchChat = async () => {
@@ -128,3 +136,16 @@ elements.form.addEventListener("submit", (e) => {
 });
 
 setInterval(() => {fetchChat()}, 1000)
+
+// notifaction management
+Notification.requestPermission((result) => {
+    console.log(result);
+});
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        sendNotifs = true;
+    } else {
+        sendNotifs = false;
+    }
+});
