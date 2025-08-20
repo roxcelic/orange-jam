@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/astro/chat.astro';
+---
+<Layout title='chat' desc='talk to your "friends"'>
+<h1>chat</h1>
+<div class="infoCardWrapper">
+    <div class="chatContent" id="chat/chat" />
+</div>
+<form id="chat/form" onsubmit="return true">
+    <div class="userTools">
+        <input class="infoCardWrapper" placeholder="message..." id="chat/input">
+        <button class="sendButton" type="submit">
+            <span class="material-symbols-outlined" id="chat/sendButton">
+                send
+            </span>
+        </button>
+    </div>
+</form>
+
+<script src="/src/res/js/chat.js"/>
+</Layout>

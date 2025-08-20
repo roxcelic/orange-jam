@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/astro/chat.astro';
+---
+<Layout title='chat' desc='talk to your "friends"'>
+<h1>chat login</h1>
+
+<form id="login/form" style="width: 80%;" onsubmit="return false">
+    <fieldset>
+      <legend><p>api/accounts/loginWithBsky</p></legend>
+        <h1>log in with your bluesky account</h1>
+
+      <p>Name:</p>
+      <input class="infoCardWrapper" placeholder="message..." id="login/name">
+
+      <p>Password:</p>
+      <input type="password" class="infoCardWrapper" placeholder="message..." id="login/password">
+
+      <p>submit:</p>
+      <input type="submit" class="infoCardWrapper" placeholder="message..." id="login/submit">
+
+
+      <p>result: </p>
+      <code id="login/result">
+        none
+      </code>
+    </fieldset>
+</form>
+
+<hr>
+<h1>discaimer</h1>
+<h4 style="color:red;text-shadow:red 0px 0px 4px">Do not willingly give out your personal details to websites you dont trust</h4>
+<p>
+    I am working on this website as it is up. More and clearer documentation will come so do not use if you would like to wait until then.<br>
+    <b>I do not store sensative information relating to your bluesky</b><br>
+    The process for signing in is you send your username and password to my server, it will attempt to create a sign in session with bluesky. If that is succesfull
+    it will then use these following peices of information:
+</p>
+
+<ul>
+    <li>your id (the only piece perminantly stored)</li>
+    <li>your account profile picture (it will use this as your default profile picture)</li>
+    <li>your account display name</li>
+    <li>your account description</li>
+</ul>
+    
+<p>
+    Once done with that it will create a token (one unique to my program) and add it to your cookies. It does not save your username, password or bluesky token.
+    Bluesky is simply used as a way to ensure the people using my program cannot exploit it. As of writing this (may change and this might not be updated right away) I 
+    am working on a page to edit your account data, so profile pictures and what not and a page going into more detail about the authentication process. If you would like 
+    to view the source code it is <a href="https://git.roxcelic.love/roxcelic/melody">here</a>. If you would like to request your data or anything of the sort you can contact 
+    me over social media while I work on some sort of a ticket system. I have a focus on security with this itteration so I have taken a fair few more expansive messures 
+    than the previous itterations of my api.
+</p>
+<p>
+    finally i am not responsible if anything was to happen, as I am a single person working on this project to practice it may not be as secure as required so I am making sure
+    that risk is known to any users
+</p>
+
+<script src="/src/res/js/chatFunctions/logon.js"/>
+</Layout>

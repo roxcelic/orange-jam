@@ -4,6 +4,8 @@
 @use 'colors/_dark';
 @use 'colors/_light';
 
+@use 'chat';
+
 // base styles
 html, body {
     padding: 0;
@@ -466,6 +468,16 @@ hr {
 // 88-31
 .A88-31 {
     
+}
+
+input {
+    margin-top: 5px !important;
+
+    color: var(--TextBaseColor);
+    font-family: "Pixelify Sans", sans-serif;
+    text-shadow: var(--TextHeadingColor) 0px 0px 4px;
+
+    min-height: 2.5vh;
 }
 
 
