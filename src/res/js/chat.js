@@ -1,5 +1,9 @@
 // variables
-let api = "http://localhost:3000";
+import { call } from "./house/api";
+let api = "https://api.roxcelic.love";
+
+let user = await call();
+console.log(user);
 
 let elements = {
     form: document.getElementById("chat/form"),
@@ -34,7 +38,7 @@ let sendMessage = async () => {
         let data = await response.json();
         
         if (data.status == "unauthorised") {
-            window.location.href = "/chat/logon"
+            window.location.href = "/api/logon"
         }
 
         elements.input.value = "";
@@ -61,6 +65,9 @@ let createChat = async (message) => {
     let name = document.createElement("p");
     name.className = "name";
 
+    let nameInner = document.createElement("a");
+    nameInner.href = `/profile?user=${message.user.id}`
+
     let nameI = document.createElement("i");
     nameI.innerText = message.user.username;
 
@@ -85,7 +92,8 @@ let createChat = async (message) => {
     content.innerText = message.message;
 
     // build
-    name.appendChild(nameI);
+    nameInner.appendChild(nameI);
+    name.appendChild(nameInner);
     ic.appendChild(name);
     ic.appendChild(content);
     main.appendChild(pfp);
@@ -96,9 +104,17 @@ let createChat = async (message) => {
     main.scrollIntoView({behavior: "smooth"});
     previousChat = message;
 
+    // delete
+    if (!user.admin) {
+        console.log("hi");
+        main.addEventListener("dblclick", async (e) => {
+            await fetch(`https://api.roxcelic.love/api/chat/?target=${e.explicitOriginalTarget.id}`);
+        })
+    }
+
     // notifaction
     if (sendNotifs) {
-        let notification = new Notification("To do list", { body: `new Message from ${message.user.username}` });
+        let notification = new Notification(`new message from ${message.user.username}`, { body:  message.message});
         setTimeout(() => {notification.close(), 10000});
     }
 };

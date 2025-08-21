@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/astro/main.astro';
+---
+<Layout title='profile' desc='customise your profile'>
+
+<div class="profile">
+    <h1 id="profile/title">Hello,</h1>
+    <div class="content">
+        <img class="pfp" src="" id="profile/pfp"/>
+        <div class="about">
+            <h3 id="profile/username" class="username"></h3>
+            <p id="profile/pronouns" class="pronouns"></p>
+            
+            <hr>
+            <p id="profile/bio" class="bio">
+                IM A BIO
+            </p>
+        </div>
+    </div>
+    <div id="profile/edit" class="edit">
+        <h1>edit</h1>
+
+        <!--edit/profile_picture-->
+        <details>
+            <summary>
+                profile picture
+            </summary>
+
+            <form id="profile/pfp/form">
+                <fieldset style="border: none;">
+                    <label for="profilePictureUpload" id="profilePictureUploadDisplay" />
+                    <input
+                        id="profilePictureUpload"
+                        type="file"
+                        accept="image/*"
+                        name="profile-file"
+                    />
+                    <input 
+                        class="infoCardWrapper saveButton" 
+                        id="profilePictureUploadButton" 
+                        type="submit"
+                        disabled
+                    >
+                </fieldset>
+            </form>
+        </details>
+
+        <!--edit/profile_picture-->
+        <details>
+            <summary>
+                username
+            </summary>
+
+            <input
+                class="infoCardWrapper saveButton"
+                id="profile/username/input"
+            >
+            <button 
+                class="infoCardWrapper saveButton" 
+                id="profile/username/save" 
+                disabled
+            >
+                
+                save
+            </button>
+        </details>
+
+        <!--edit/profile_picture-->
+        <details>
+            <summary>
+                pronouns
+            </summary>
+
+            <input
+                class="infoCardWrapper saveButton"
+                id="profile/pronouns/input"
+            >
+            <button 
+                class="infoCardWrapper saveButton" 
+                id="profile/pronouns/save" 
+                disabled
+            >
+                
+                save
+            </button>
+            <p>
+                please input in the format of {"{pronoun}"}/{"{pronoun}"}/{"{pronoun}"}
+            </p>
+        </details>
+
+        <!--edit/profile_picture-->
+        <details>
+            <summary>
+                bio
+            </summary>
+
+            <input
+                class="infoCardWrapper saveButton"
+                id="profile/bio/input"
+            >
+            <button 
+                class="infoCardWrapper saveButton" 
+                id="profile/bio/save" 
+                disabled
+            >
+                
+                save
+            </button>
+        </details>
+
+        <p>you will have to reload the page to see any changes, may take a while for the changes to show throughout the whole website</p>
+    </div>
+</div>
+
+<script src="/src/res/js/profile.js"/>
+</Layout>

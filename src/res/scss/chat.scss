@@ -108,3 +108,121 @@
 
     margin-left: 20px;
 }
+
+.profile {
+    width: var(--profileWidth);
+
+    margin: auto auto;
+    padding: 1vh;
+    margin-top: 5vh;
+
+    border-radius: 13px;
+    border: solid 1px var(--TextBaseColor);
+
+    background-color: var(--PageBackgroundColor);
+
+    .content {
+        display: grid;
+
+        grid-template-columns: 50% 50%;
+
+        .about {
+            border: solid 1px var(--TextBaseColor);
+            border-radius: 13px;
+            
+            margin: 1vh;
+            padding: 1vh;
+
+            .username {
+                margin: 0;
+            }
+
+
+            .pronouns {
+                font-size: small;
+                margin: 0;
+                margin-left: 10px;
+            }
+
+            .bio {
+
+            }
+        }
+
+        .pfp {
+            width: 15vw;
+
+            margin: auto auto;
+
+            border-radius: 7.5vw !important;
+
+            border: solid 1px var(--TextBaseColor);
+            border-bottom: solid 3px var(--TextBaseColor);
+
+            background-color: white;
+
+        }
+    }
+}
+
+
+
+input[type="file"] {
+    display: none;
+}
+
+#profilePictureUploadDisplay {
+    display: block;
+
+    width: 100px;
+    height: 100px;
+
+    margin: auto;
+
+    background-image: url('https://api.roxcelic.love/api/user/pfp');
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 3px;
+    border: solid 1px var(--TextBaseColor);
+    border-bottom: solid 3px var(--TextBaseColor);
+}
+
+.saveButton:enabled {
+    display: block;
+
+    width: 100%;
+    margin-top: 5px;
+
+    opacity: 0.8;
+
+
+    color: var(--TextBaseColor);
+    font-family: "Pixelify Sans", sans-serif;
+    text-shadow: var(--TextHeadingColor) 0px 0px 4px;
+    text-align: center;
+
+    &:hover {
+        opacity: 9;
+        text-shadow: var(--TextHeadingColor) 0px 0px 6px;
+    }
+
+    transition: all ease-in-out 0.3s;
+}
+
+.saveButton:disabled {
+    display: block;
+
+    width: 100%;
+    margin-top: 5px;
+
+    opacity: 0.5;
+
+    transition: all ease-in-out 0.3s;
+}
+
+.info {
+    display: block;
+
+    width: 100% !important; 
+}

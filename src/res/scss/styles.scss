@@ -480,6 +480,29 @@ input {
     min-height: 2.5vh;
 }
 
+details {
+    border: 1px solid var(--TextBaseColor);
+
+    border-radius: 4px;
+    
+    padding: 0.5em 0.5em 0;
+
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+  
+summary {
+    color: var(--TextBaseColor);
+    font-family: "Pixelify Sans", sans-serif;
+    text-shadow: var(--TextHeadingColor) 0px 0px 4px;
+
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+}
+  
+details[open] {
+    padding: 0.5em;
+}
 
 //  animations
 @keyframes openFullScreenImage {

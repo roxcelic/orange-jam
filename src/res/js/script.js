@@ -1,6 +1,6 @@
 import { addCPbutton } from "./house/addCPbutton";
 import { fullScreenImages } from "./house/fullScreenImages";
-import { loadMusicCard } from "./house/loadMusicCard";
+import { displayUserPfp } from "./house/displayUserpfp";
 
 // functions
 function displayRandomAlbum() {
@@ -35,14 +35,7 @@ function displayRandomAlbum() {
 // run
 if (navigator.clipboard) addCPbutton();
 fullScreenImages();
-
-// page specific
-switch(window.location.pathname) {
-    case "/about_me/": case "/about_me":
-        loadMusicCard();
-
-        break;
-}
+displayUserPfp();
 
 // 404
 switch(document.title) {

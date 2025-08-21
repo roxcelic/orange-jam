@@ -1,6 +1,8 @@
-let call = async (endpoint = "", root = "https://api.roxcelic.love/api/v1/") => {
+let call = async (endpoint = "", root = "https://api.roxcelic.love/api/") => {
     try {
-        let response = await fetch(`${root}${endpoint}`);
+        let response = await fetch(`${root}${endpoint}`, {
+            credentials: "include"
+        });
         let data = await response.json();
 
         return data;
@@ -9,10 +11,11 @@ let call = async (endpoint = "", root = "https://api.roxcelic.love/api/v1/") => 
     }
 };
 
-let post = async (endpoint = "", content = {}, root = "https://api.roxcelic.love/api/v1/") => {
+let post = async (endpoint = "", content = {}, root = "https://api.roxcelic.love/api/") => {
     try {
         let response = await fetch(`${root}${endpoint}`, {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             },
