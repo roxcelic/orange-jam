@@ -8,7 +8,14 @@ import Layout from '../layouts/astro/chat.astro';
 </div>
 <form id="chat/form" onsubmit="return true">
     <div class="userTools">
-        <input class="infoCardWrapper" placeholder="message..." id="chat/input">
+        <input 
+            class="infoCardWrapper" 
+            placeholder="message..." 
+            id="chat/input" 
+            autocomplete="off" 
+            autocapitalize="off" 
+            autofocus
+        > 
         <button class="sendButton" type="submit">
             <span class="material-symbols-outlined" id="chat/sendButton">
                 send

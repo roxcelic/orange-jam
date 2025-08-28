@@ -5,6 +5,8 @@ import Layout from '../layouts/astro/main.astro';
 
 <div class="profile">
     <h1 id="profile/title">Hello,</h1>
+    <div class="banner" id="profile/banner"/>
+
     <div class="content">
         <img class="pfp" src="" id="profile/pfp"/>
         <div class="about">
@@ -14,6 +16,11 @@ import Layout from '../layouts/astro/main.astro';
             <hr>
             <p id="profile/bio" class="bio">
                 IM A BIO
+            </p>
+            <p class="web">
+                <a id="profile/web">
+                    link
+                </a>
             </p>
         </div>
     </div>
@@ -45,7 +52,32 @@ import Layout from '../layouts/astro/main.astro';
             </form>
         </details>
 
-        <!--edit/profile_picture-->
+        <!--edit/banner-->
+        <details>
+            <summary>
+                banner
+            </summary>
+
+            <form id="profile/banner/form">
+                <fieldset style="border: none;">
+                    <label for="profileBannerUpload" id="profileBannerUploadDisplay" />
+                    <input
+                        id="profileBannerUpload"
+                        type="file"
+                        accept="image/*"
+                        name="profile-file"
+                    />
+                    <input 
+                        class="infoCardWrapper saveButton" 
+                        id="profileBannerUploadButton" 
+                        type="submit"
+                        disabled
+                    >
+                </fieldset>
+            </form>
+        </details>
+
+        <!--edit/username-->
         <details>
             <summary>
                 username
@@ -65,7 +97,7 @@ import Layout from '../layouts/astro/main.astro';
             </button>
         </details>
 
-        <!--edit/profile_picture-->
+        <!--edit/pronouns-->
         <details>
             <summary>
                 pronouns
@@ -88,7 +120,30 @@ import Layout from '../layouts/astro/main.astro';
             </p>
         </details>
 
-        <!--edit/profile_picture-->
+        <!--edit/websiteLink-->
+        <details>
+            <summary>
+                website
+            </summary>
+
+            <input
+                class="infoCardWrapper saveButton"
+                id="profile/website/input"
+            >
+            <button 
+                class="infoCardWrapper saveButton" 
+                id="profile/website/save" 
+                disabled
+            >
+                
+                save
+            </button>
+            <p>
+                This is a link to your favourite social media or website, please nothing inappropriate. It is very difficult for me to poliece these
+            </p>
+        </details>
+
+        <!--edit/bio-->
         <details>
             <summary>
                 bio

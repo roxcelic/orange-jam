@@ -9,7 +9,7 @@ export async function fullScreenImages() {
     }
 }
 
-function openFullScreenImage(src, altText){
+export function openFullScreenImage(src, altText){
     if(document.getElementsByClassName("fullScreenImage").length == 0) {
         let wrapper = document.createElement("div");
         wrapper.className = "fullScreenImage";
