@@ -1,4 +1,6 @@
-let call = async (endpoint = "", root = "https://api.roxcelic.love/api/") => {
+import { config } from "../config";
+
+let call = async (endpoint = "", root = `${config.api}/api/`) => {
     try {
         let response = await fetch(`${root}${endpoint}`, {
             credentials: "include"
@@ -11,7 +13,7 @@ let call = async (endpoint = "", root = "https://api.roxcelic.love/api/") => {
     }
 };
 
-let post = async (endpoint = "", content = {}, root = "https://api.roxcelic.love/api/") => {
+let post = async (endpoint = "", content = {}, root = `${config.api}/api/`) => {
     try {
         let response = await fetch(`${root}${endpoint}`, {
             method: "POST",

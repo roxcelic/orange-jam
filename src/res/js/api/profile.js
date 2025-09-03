@@ -1,4 +1,5 @@
-import { call, post } from "./house/api";
+import { call, post } from "../house/api";
+import { config } from "../config";
 
 const params = new URLSearchParams(window.location.search);
 let target = params.get("user");
@@ -16,11 +17,12 @@ else user = await call("user");
 
 
 // if not logged in login
-if (!userData.loggedIn && !target) window.location.href = "/api/logon";
+if (!userData.loggedIn && !target) window.location.href = "/api/login";
 
 let elements = {
     title: document.getElementById("profile/title"),
     pfp: document.getElementById("profile/pfp"),
+    banner: document.getElementById("profile/banner"),
     username: document.getElementById("profile/username"),
     pronouns: document.getElementById("profile/pronouns"),
     bio: document.getElementById("profile/bio"),
@@ -62,7 +64,8 @@ let elements = {
 elements.username.innerText = user.username;
 elements.pronouns.innerText = user?.pronouns || "";
 elements.bio.innerText = user.bio;
-elements.pfp.src = `https://api.roxcelic.love/api/users/${user.id}/pfp`;
+elements.pfp.src = `${config.api}/api/users/${user.id}/pfp`;
+elements.banner.style.backgroundImage = `url('${config.api}/api/users/${user.id}/banner')`;
 elements.web.href = user.website;
 
 function loadEdit(data) {
@@ -111,13 +114,13 @@ function loadEdit(data) {
     elements.edit.pfpEdit.file.addEventListener("change", () => {displayNewImage(elements.edit.pfpEdit)});
     elements.edit.pfpEdit.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        uploadPfp(e, elements.edit.pfpEdit, "https://api.roxcelic.love/api/account/uploadProfilePicture")
+        uploadPfp(e, elements.edit.pfpEdit, `${config.api}/api/account/uploadProfilePicture`)
     });
 
     elements.edit.bannerEdit.file.addEventListener("change", () => {displayNewImage(elements.edit.bannerEdit)});
     elements.edit.bannerEdit.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        uploadPfp(e, elements.edit.bannerEdit, "https://api.roxcelic.love/api/account/uploadBanner")
+        uploadPfp(e, elements.edit.bannerEdit, `${config.api}/api/account/uploadBanner`)
     });
 
     console.log(data);

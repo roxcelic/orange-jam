@@ -3,9 +3,18 @@ import Layout from '../layouts/astro/chat.astro';
 ---
 <Layout title='chat' desc='talk to your "friends"'>
 <h1>chat</h1>
+
 <div class="infoCardWrapper">
+    <select id="chatFunctionSelect" style="display: none;">
+        <option value="base">base</option>
+        <option value="delete">delete</option>
+        <option value="viewProfile">view profile</option>
+    </select>
+
+      
     <div class="chatContent" id="chat/chat" />
 </div>
+
 <form id="chat/form" onsubmit="return true">
     <div class="userTools">
         <input 

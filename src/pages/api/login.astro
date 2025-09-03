@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/astro/chat.astro';
+
+import Tos from '../../comp/tos.mdx';
+---
+<Layout title='chat' desc='talk to your "friends"'>
+  <h1>chat login</h1>
+  <p>
+    please log in with your discord account via <i>Oauth</i>
+  </p>
+  <h2><a href="http://localhost:3000/api/account/login">login</a></h2>
+
+  <!--TOS-->
+  <h1>TOS & TAC</h1>
+  <Tos />
+</Layout>

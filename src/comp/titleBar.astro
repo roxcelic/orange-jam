@@ -1,8 +1,12 @@
+---
+import { config } from "../../config"
+---
+
 <div id="titleBarContainer">
     <div class="content">
         <div id="left">
             <div style="display: flex;">
-                <a href="/profile"><img src="https://api.roxcelic.love/api/user/pfp" id="user_profile_pciture" style="width: 24px;height:24px;margin-right: 5px;"></a>
+                <a href="/profile"><img src=`${config.api}/api/user/pfp` id="user_profile_pciture" style="width: 24px;height:24px;margin-right: 5px;"></a>
                 <a href="/"><p>roxcelic.love</p></a>
             </div>
         </div>

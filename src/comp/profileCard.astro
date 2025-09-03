@@ -1,5 +1,8 @@
+---
+import { config } from "../../config"
+---
 <div class="infoCardWrapper">
-    <img class="infoCardPfp" id="profile_picture" src="https://api.roxcelic.love/api/users/1279883108342304862/pfp" alt="my profile picture on roxcelic.love/chat"/>
+    <img class="infoCardPfp" id="profile_picture" src=`${config.api}/api/users/1279883108342304862/pfp` alt="my profile picture on roxcelic.love/chat"/>
     <div class="infoCardLinks">
         <ul>
             <li><a href="//git.roxcelic.love/roxcelic">git.roxcelic.love/roxcelic</a></li>
