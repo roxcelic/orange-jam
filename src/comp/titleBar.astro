@@ -1,0 +1,75 @@
+---
+interface Props { title: string; }
+const { title } = Astro.props;
+---
+<div class="TitleBar">
+    <!--Base html-->
+    <!------------->
+    <div id="titlebar">
+        <div class="_titlebar-start">
+            <a href="/">
+                <p>roxcelic.love {title}</p>
+            </a>
+        </div>
+
+        <!-- <div class="_titlebar-middle">
+            <a href="/">
+                <p>hiii</p>
+            </a>
+        </div> -->
+
+        <div class="_titlebar-end">
+            <p>
+                <a href="/about_me">about me</a> /
+                <a href="/projects">projects</a>
+            </p>
+        </div>
+    </div>
+    <!------------->
+
+    <!--Style-->
+    <!--------->
+    <style lang="scss">
+        #titlebar {
+            // positioning
+            position: relative;
+
+            width: 90vw;
+            height: min-content;
+
+            margin: auto auto;
+            padding: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            // grid
+            display: grid;
+            grid-template-columns: 30% 70%;
+
+            // border
+            border-radius: 13px;
+            // border: solid 1px white;
+            border: none;
+
+            // coloring / filter
+            // background-color: rgba(10, 0, 5, 0.75);
+            // backdrop-filter: blur(10px);
+
+            // text 
+            p { margin: 0; padding: 0; font-family: "Bitcount Grid Double Ink", system-ui !important; text-shadow: none !important; font-size: small !important;}
+
+            // seperate children
+            ._titlebar-start {text-align: start;}
+            ._titlebar-middle {text-align: center;}
+            ._titlebar-end {text-align: end;}
+        }
+    </style>
+    <!--------->
+
+    <!--Js-->
+    <!------>
+    <script>
+        console.log("tada");
+    </script>
+    <!------>
+</div>

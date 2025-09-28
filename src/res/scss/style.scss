@@ -1,0 +1,150 @@
+// variables, so things like colors and opacity values that i use often
+:root{
+    // text colors
+    --TextBaseColor: rgb(255, 223, 240);
+    --TextAltColor: rgb(255, 168, 214);
+    --TextHeadingColor: white;
+
+    // background
+    --PageBackgroundColor: rgba(10, 0, 5, 0.75);
+    --PageOpacity: 0.75;
+
+    // opacity
+    --opacityTextBase: 0.75;
+    --opacityTextHover: 1;
+    --opacityTitleBase: 0.25;
+    --opacityTitleHover: 1;
+}
+
+// screen size
+@media (max-width: 768px) {
+    .desktop {display: none;}
+    .mobile {display: block;}
+
+    // extra for mobile 
+    .bar { // this is for the components/bar and so if its mobile and has text under it, it wont like have a huge ass gap
+        margin-top: 0.5vh !important;
+        margin-bottom: 0.5vh !important;
+    }
+
+    .gameVideo { // this is for the video part in components/projectBar and its so it reaches the edges of the screen
+        width: 95vw !important;
+    }
+
+    .gameImage { // this is for the image part in components/projectBar so that it matches the videos groth amd removes blur
+        width: 95vw !important;
+
+        .blur {display: none;}
+    }
+}
+
+@media (min-width: 768px) {
+    .desktop {display: block;}
+    .mobile {display: none;}
+}
+
+
+// base
+html {
+    // max out screen size constantly, I am aware this is bad practice but what are you gonna do
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+
+    // background data
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// This is what i use to apply the filter to everything and what not
+main {
+    // position, same as html{} MAX OUT THE SIZE
+    position: absolute;
+
+    height: 100vh;
+    width: 100vw;
+    
+    left: 0;
+    top: 0;
+
+    overflow: hidden;
+    overflow-y: scroll;
+
+    padding: 1vh;
+
+    // coloring / filter
+    background-color: rgba(10, 0, 5, 0.75);
+    backdrop-filter: blur(10px);
+
+    // text
+    color: white;
+}
+
+// text
+h1, h2, h3, h4, h5, h6 {
+    // the auto font sizes are fine for now this is just for font family
+
+    color: var(--TextHeadingColor);
+    font-family: "VT323", monospace;
+
+    // cool and awesome effect
+    opacity: var(--opacityTitleBase);
+    text-shadow: 0px 0px 4px;
+
+    &:hover {
+        opacity: var(--opacityTitleHover);
+        text-shadow: 0px 0px 10px;
+    }
+
+    transition: all ease-in-out 0.3s;
+}
+
+p {
+    color: var(--TextBaseColor);
+    font-family: "Pixelify Sans", sans-serif;
+
+    // cool and awesome effect
+    opacity: var(--opacityTextBase);
+    text-shadow: 0px 0px 4px;
+
+    &:hover {
+        opacity: var(--opacityTextHover);
+        text-shadow: 0px 0px 10px;
+    }
+
+    transition: all ease-in-out 0.3s;
+}
+
+hr {
+    width: 80%;
+    margin: auto auto;
+}
+
+/* 
+    These styles past this point are re used from an older version of this project and may need to be remade
+*/
+
+p,li,ul,marquee {
+    opacity: var(--opacityTextBase);
+
+    text-shadow: 0px 0px 4px;
+
+    transition: all ease-in-out 0.3s;
+    // why do i need to keep this who knows
+    font-family: "Pixelify Sans", sans-serif;
+
+    &:hover {
+        text-shadow: 0px 0px 10px;
+        opacity: var(--opacityTextHover);
+    }
+}
+
+a {
+    color: var(--TextAltColor);
+
+    &* {
+        color: var(--TextAltColor) !important;
+    }
+}

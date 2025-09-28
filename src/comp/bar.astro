@@ -1,0 +1,196 @@
+---
+interface Props { gameName: string; gameDescription: string; copyrightMessage: string; companyImage: string; gameImage: string; url: string; }
+const { gameName, gameDescription, copyrightMessage, companyImage, gameImage, url } = Astro.props;
+
+/*
+    INFO: this is just like what i plan to use for the portfolio content, heres some info about the images
+        Left: this is just the logo and the css is designed around it being a transparent company / game logo
+        Right: this is the game banner,
+            aspect ratio: [900 : 75] --- [12 : 1]
+                Width: 600px // 262px
+                Height: 50px // 75px
+            This will later be used for the game page too.
+*/
+---
+<div>
+    <a href={url} style="all: unset;">
+        <div class="bar">
+            <!--Base html-->
+            <!------------->
+    
+            <div class="left" style=`background-image: url('${companyImage}');`><div class="barCover"><p>{copyrightMessage}</p></div></div>
+            <div class="right" style=`background-image: url('${gameImage}');`>
+                <div class="barContent">
+                    <h2>{gameName}</h2>
+                    <p>{gameDescription} </p>
+                </div>
+            </div>
+            
+            <!------------->
+        
+            <!--Style-->
+            <!--------->
+            <style lang="scss">
+                .bar {
+                    // var
+                    --p: 75px;
+                    --modifier: 1.5px;
+    
+                    // positioning / display
+                    width: 80vw;
+    
+                    max-height: var(--p);
+                    min-height: 4vw;
+    
+                    overflow: hidden;
+    
+                    position: relative;
+    
+                    margin: auto auto;
+                    margin-top: 2.5vh;
+                    margin-bottom: 2.5vh;
+    
+                    top: 0px;
+                    right: 0px;
+    
+                    // grid
+                    display: grid;
+                    grid-template-columns: 30% calc(70% + calc(var(--p) - var(--modifier)));
+    
+                    // coloring
+                    background-color: white;
+                    border: solid 1px white;
+    
+                    border-radius: 7px;
+                    
+                    box-shadow: 0 0 0 0;
+    
+                    opacity: 0.5;
+    
+                    // children
+                    &* {
+                        position: relative; background-color: black;
+    
+                        // background
+                        background-size: contain; 
+                        background-position: center; 
+                        background-repeat: no-repeat;
+                    }
+                    .left { 
+                        // shape
+                        clip-path: polygon(0 0, calc(100% - var(--p)) 0,100% 100%,0 100%); 
+    
+                        // bar cover effect
+                        .barCover {
+                            height: 100%;background-color: rgba(0, 0, 0, 0); transition: all ease-in-out 0.3s; 
+                            
+                            // alignment
+                            display: grid;
+                            grid-template-columns: 100%;
+    
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+    
+                            // text
+                            p {font-size: xx-small !important;}
+                        }
+                    }
+                    .right { 
+                        // shape
+                        right: calc(var(--p) - var(--modifier)); clip-path: polygon(var(--p) 100%,calc(100%) 100%,100% 0,0 0); 
+    
+                        // background
+                        background-size: cover; background-position: center; background-repeat: no-repeat;
+    
+                        // text
+                        .barContent { 
+                            height: 100%;background-color: rgba(0, 0, 0, 0); transition: all ease-in-out 0.3s; 
+                            
+                            // alignment
+                            display: grid;
+                            grid-template-columns: 100%;
+                            grid-template-rows: 40% 40%;
+    
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                        }
+                    }
+    
+                    h2, p {
+                        // dont like the inherited styles
+                        all: unset;
+    
+                        // alignment
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+    
+                        width: 100%;
+    
+                        // text
+                        text-decoration: none !important;
+                        color: var(--TextBaseColor);
+                        font-family: "Bitcount Grid Double Ink", system-ui;
+    
+                        // hidden
+                        opacity: 0;
+                        background-color: rgba(0, 0, 0, 0);
+    
+                        // transition
+                        transition: all ease-in-out 0.5s;
+                    }
+                    p {
+                        font-size: x-small;
+                    }
+    
+                    // main effect
+                    &:hover {
+                        // make text appear
+                        .left {.barCover {background-color: rgba(0, 0, 0, 0.5);}}
+                        .right {
+                            .barContent {background-color: rgba(0, 0, 0, 0.5);}
+                        }
+    
+                        h2, p {
+                            opacity: 1;
+                        }
+    
+                        // glow
+                        box-shadow: 2px 2px 5px 2.5px var(--TextBaseColor);
+                        background-color: black;
+                        border-color: black;
+    
+                        // position
+                        top: -5px;
+                        right: -5px;
+                        z-index: 1;
+    
+                        // color
+                        opacity: 1  ;
+                    }
+    
+                    // transition
+                    transition: all ease-in-out 0.5s;
+                }
+            </style>
+            <!--------->
+        
+            <!--Js-->
+            <!------>
+            <script>
+                console.log("tada");
+            </script>
+            <!------>
+        
+        </div>
+    </a>
+    
+    <center class="mobile" style="font-size: xx-small;">
+        <p style="margin: 0; padding: 0;">
+            {gameName} --- {gameDescription}
+        </p>
+    </center>
+</div>

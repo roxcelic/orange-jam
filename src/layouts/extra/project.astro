@@ -1,0 +1,16 @@
+---
+const { frontmatter } = Astro.props;
+
+// components
+import Layout from './astro.astro';
+import ProjectBar from '../../comp/projectBar.astro';
+---
+
+<Layout desc={frontmatter.desc} title={frontmatter.title}>
+    <!--project post layout data-->
+    <!--------------------->
+    <ProjectBar gameVideo={frontmatter.gameVideo} gameImage={frontmatter.gameImage} title={frontmatter.title} downloadLink={frontmatter.downloadLink}/>
+    
+    <slot />
+    <!--------------------->
+</Layout>
