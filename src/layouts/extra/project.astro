@@ -11,6 +11,10 @@ import ProjectBar from '../../comp/projectBar.astro';
     <!--------------------->
     <ProjectBar gameVideo={frontmatter.gameVideo} gameImage={frontmatter.gameImage} title={frontmatter.title} downloadLink={frontmatter.downloadLink}/>
     
-    <slot />
+    <mainText>
+        <center>
+            <slot />
+        </center>
+    </mainText>
     <!--------------------->
 </Layout>

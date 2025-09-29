@@ -36,6 +36,11 @@
 
         .blur {display: none;}
     }
+
+    h1, h2, h3, h4, h5, h6, p, li, ul, marquee { // stops hover effects on mobile
+        opacity: calc(var(--opacityTextHover) - 0.1) !important;
+        text-shadow: 0px 0px 10px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -122,11 +127,20 @@ hr {
     margin: auto auto;
 }
 
+mainText { // This is what ill use to hold the main text
+    position: relative; 
+    display: block;
+
+    width: 80vw;
+    margin: auto auto;
+}
+
 /* 
     These styles past this point are re used from an older version of this project and may need to be remade
 */
 
 p,li,ul,marquee {
+    color: var(--TextBaseColor);
     opacity: var(--opacityTextBase);
 
     text-shadow: 0px 0px 4px;

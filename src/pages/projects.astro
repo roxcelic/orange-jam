@@ -9,14 +9,6 @@ const allPosts = Object.values(import.meta.glob('./projects/**/*.{md,mdx}', { ea
 
 <Layout desc='my projects yay' title='projects'>
     <h1 style="text-align: center;">projects</h1>
-    {allPosts.map((post: any) => <Bar 
-                                    gameName={post.frontmatter.title}
-                                    gameDescription={post.frontmatter.desc}
-                                    copyrightMessage={post.frontmatter.extra}
-                                    companyImage={post.frontmatter.companyImage}
-                                    gameImage={post.frontmatter.gameImage}
-                                    url={post.url}
-                                />
-    )}
+    {allPosts.length > 0 ? allPosts.map((post: any) => <Bar gameName={post.frontmatter.title} gameDescription={post.frontmatter.desc} copyrightMessage={post.frontmatter.extra} companyImage={post.frontmatter.companyImage} gameImage={post.frontmatter.gameImage} url={post.url} />) : <p>sorry nothing here yet...</p>}
 
 </Layout>
