@@ -133,13 +133,15 @@ mainText { // This is what ill use to hold the main text
 
     width: 80vw;
     margin: auto auto;
+
+    padding-bottom: 5vh;
 }
 
 /* 
     These styles past this point are re used from an older version of this project and may need to be remade
 */
 
-p,li,ul,marquee {
+p,li,ul,marquee,td,th {
     color: var(--TextBaseColor);
     opacity: var(--opacityTextBase);
 
@@ -161,4 +163,52 @@ a {
     &* {
         color: var(--TextAltColor) !important;
     }
+}
+
+blockquote {
+    display: inline-block;
+    font-style: italic; 
+    opacity: 0.75;
+    border-left: solid 2px rgb(95, 95, 95);
+    padding-left: 5px;
+
+    & p, & {margin: 0 !important};
+}
+
+// center important information
+blockquote, h1 {text-align: center !important;}
+
+// code
+.astro-code {
+    border-radius: 13px;
+    border: solid 1px white;
+
+    width: calc(100% + 1.1vh);
+
+    padding-left: 1vh;
+
+    background-color: rgba(10, 0, 5, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+// table
+table {
+    width: 100%;
+
+    * {text-align: center;}
+}
+table, th, td {
+  border: 1px solid var(--TextBaseColor);
+  border-collapse: collapse;
+}
+
+// 88-31
+.hld-88-31 {
+    display: flex;
+    justify-content: center;
+}
+.m-88-31 {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    margin: 2.5px;
 }
