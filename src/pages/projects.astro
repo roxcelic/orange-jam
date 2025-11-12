@@ -2,18 +2,28 @@
 // components
 import Layout from '../Layouts/extra/astro.astro';
 import Bar from '../comp/bar.astro';
+import ShowReal from '../comp/showReal.astro';
 
 // project data
 const allPosts = Object.values(import.meta.glob('./projects/**/*.{md,mdx}', { eager: true }));
 ---
 
 <Layout desc='my projects yay' title='projects'>
+    <h2 style="text-align: center;">---</h2><!--line break-->
+    <h1>show real</h1>
+
+    <!-- <ShowReal /> -->
+     <p style="text-align: center;"><i>empty</i></p>
+
+    <h2 style="text-align: center;">---</h2><!--line break-->
     <h1 style="text-align: center;">projects</h1>
-    {allPosts.length > 0 ? allPosts.map((post: any) => <Bar gameName={post.frontmatter.title} gameDescription={post.frontmatter.desc} copyrightMessage={post.frontmatter.extra} companyImage={post.frontmatter.companyImage} gameImage={post.frontmatter.gameImage} url={post.url} />) : <p>sorry nothing here yet...</p>}
+    {allPosts.length > 0 ? allPosts.map((post: any) => <Bar gameName={post.frontmatter.title} gameDescription={post.frontmatter.desc} copyrightMessage={post.frontmatter.extra} companyImage={post.frontmatter.companyImage} gameImage={post.frontmatter.gameImage} url={post.url} company={post.frontmatter.company}/>) : <p>sorry nothing here yet...</p>}
     <h2 style="text-align: center;">---</h2> <!--Line break-->
+
     <mainText>
+        <h2>welcome,</h2>
         <p>
-            haiiaiaiaiaiii
+            hey
         </p>
     </mainText>
 </Layout>

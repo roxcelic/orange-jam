@@ -10,6 +10,8 @@ gameImage: '/projects/metaMenaces/banner.png'
 gameVideo: 'https://drive.google.com/file/d/1bh9hzdgsdZ8-QATjLqMcanbITEYqctqY/preview'
 projectLink: 'https://github.com/roxcelic-school/simonSays'
 downloadLink: 'https://github.com/roxcelic-school/simonSays/releases/tag/v0.1-alpha'
+
+company: true
 ---
 > This project was the final project for the games design BTECH course for OCR. The client for this project was [iconika](https://iconika.io/)
 

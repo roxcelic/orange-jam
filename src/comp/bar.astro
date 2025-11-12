@@ -1,6 +1,6 @@
 ---
-interface Props { gameName: string; gameDescription: string; copyrightMessage: string; companyImage: string; gameImage: string; url: string; }
-const { gameName, gameDescription, copyrightMessage, companyImage, gameImage, url } = Astro.props;
+interface Props { gameName: string; gameDescription: string; copyrightMessage: string; companyImage: string; gameImage: string; url: string; company: boolean; }
+const { gameName, gameDescription, copyrightMessage, companyImage, gameImage, url, company = true } = Astro.props;
 
 /*
     INFO: this is just like what i plan to use for the portfolio content, heres some info about the images
@@ -14,7 +14,7 @@ const { gameName, gameDescription, copyrightMessage, companyImage, gameImage, ur
 ---
 <div>
     <a href={url} style="all: unset;">
-        <div class="bar">
+        <div class="bar" style=`grid-template-columns: ${company ? "30% calc(70% + calc(var(--p) - var(--modifier)))" : "0% calc(100% + calc(var(--p) - var(--modifier)))"}`>
             <!--Base html-->
             <!------------->
     
