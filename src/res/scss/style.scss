@@ -212,3 +212,18 @@ table, th, td {
     image-rendering: pixelated;
     margin: 2.5px;
 }
+
+// special
+special-text > p {
+    color: red;
+    text-shadow: 4px 4px 8px;
+
+    animation: wave 2s ease-in-out infinite;
+    display: inline-flex;
+}
+
+// animations
+@keyframes wave {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+}
