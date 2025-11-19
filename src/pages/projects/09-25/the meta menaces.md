@@ -1,5 +1,5 @@
 ---
-layout: '../../../Layouts/extra/project.astro'
+layout: '../../../layouts/extra/project.astro'
 
 title: 'the meta menaces'
 desc: 'a game for iconika'
